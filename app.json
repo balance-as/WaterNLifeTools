@@ -35,8 +35,8 @@
   "application": "18.0.0.0",
   "idRanges": [
     {
-      "from": 95100,
-      "to": 95999
+      "from": 97000,
+      "to": 97100
     }
   ],
   "contextSensitiveHelpUrl": "https://balance.as/",

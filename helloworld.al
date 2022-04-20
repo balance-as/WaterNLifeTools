@@ -1,4 +1,4 @@
-pageextension 95100 "BAL Hello Wordl" extends "Customer list"
+pageextension 97100 "BAL Hello World" extends "Customer list"
 {
     layout
     {
