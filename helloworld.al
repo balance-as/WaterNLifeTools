@@ -2,7 +2,7 @@ pageextension 97100 "BAL Hello World" extends "Customer list"
 {
     layout
     {
-        // Adddddddd changes to page layout here
+        // Add changes to page layout here
     }
     
     actions
