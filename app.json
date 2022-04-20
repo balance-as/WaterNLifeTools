@@ -1,0 +1,46 @@
+{
+  "id": "910911f8-70c3-4773-ba1c-ba06a874a6dd",
+  "name": "KME - Basis",
+  "publisher": "Aktieselskabet balance.as",
+  "version": "1.0.1.74",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "https://balance.as/",
+  "url": "https://balance.as/",
+  "logo": "./Image/logo.png",
+  "dependencies": [
+    {
+      "id": "ac762be1-e90f-4a72-b519-612a5e3ddc2e",
+      "name": "OIOUBL",
+      "publisher": "Microsoft",
+      "version": "18.0.23013.23795"
+    },
+    {
+      "id": "ba1776ba-1198-4b4c-a61e-c4612f1880d5",
+      "name": "IWorks Common",
+      "publisher": "Insight Works",
+      "version": "2.6.7920.1"
+    },
+    {
+      "id": "0e82e45f-317b-48ed-bb4b-beabd33e68f9",
+      "name": "YourGLS Labels",
+      "publisher": "Aktieselskabet Balance A/S",
+      "version": "18.0.1.15"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "18.0.0.0",
+  "idRanges": [
+    {
+      "from": 95100,
+      "to": 95999
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://balance.as/",
+  "resourceExposurePolicy": {"allowDebugging": true},
+  "runtime": "8.0",
+  "features": ["TranslationFile"]
+}
