@@ -6,7 +6,7 @@ page 97000 "BAL WaterNlife Setup Card"
     //BAL1.01/STOP
 
     SourceTable = "BAL WaterNlife Setup";
-    Caption = 'Kaffe Mekka Setup';
+    Caption = 'WaterNlife Setup';
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
@@ -15,30 +15,6 @@ page 97000 "BAL WaterNlife Setup Card"
     {
         area(Content)
         {
-            group(Item)
-            {
-                Caption = 'Items';
-                field("Location Filter Stock Calc."; Rec."Location Filter Stock Calc.")
-                {
-                    ApplicationArea = All;
-                }
-            }
-            group(Report)
-            {
-                Caption = 'Reports';
-                field("Report Logo"; Rec."Report Logo")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Fit proportional';
-                }
-                field("Report Logo Ecology"; Rec."Report Logo Ecology")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Fit proportional';
-                }
-
-            }
-           
             group(Debug)
             {
                 Caption = 'Debug mode';
