@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="WaterNLifeTools">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 931661215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Kaffemekka Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3257804358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bag Route</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field BAL Bag Route - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 721093902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bag Route link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field BAL Bag Route Link - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 953029934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Weighing Route</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field BAL Weighing Route - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2680902454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Weighing Route Link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field BAL Weighing Route link - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 1567358592 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug path</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug path - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3811440715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Durability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Durability - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3713136612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GTIN No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field GTIN No. Series  - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3405878410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Attribute For Ecology</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Item Attribute For Ecology - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 975831898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location Filter Stock Calculation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Location Filter Stock Calc. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2057898147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Output Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2736130265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Primary Kay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 620415847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Report Logo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 315344731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report Logo Ecology</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Report Logo Ecology - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2134835151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temp Report Logo Ecology</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Temp Report Logo Ecology - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webshop PAyment URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Webshop Payment URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Kaffe Mekka Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 540986563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Debug - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 3276313895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Item - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reports</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 620415847 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fit proportional</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Report Logo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 315344731 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fit proportional</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Report Logo Ecology - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 1864885360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webshop</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop Payment URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - NamedType 3259830970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - NamedType QtyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - NamedType 3850422781" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - NamedType UnitListPriceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - NamedType 3302686342" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MFR Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - NamedType VendorItemNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - Control 1722142039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Labels</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control NoOfLabels - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 208943483 - Control 1795468512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control Qty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Item Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action ItemLabel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3442673531 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>Item Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action ItemLabel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
+          <source>Just testing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
+          <source>delete worksheet</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

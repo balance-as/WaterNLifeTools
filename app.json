@@ -1,8 +1,8 @@
 {
   "id": "910911f8-70c3-4773-ba1c-ba06a874a6dd",
-  "name": "KME - Basis",
+  "name": "WaterNLifeTools",
   "publisher": "Aktieselskabet balance.as",
-  "version": "1.0.1.74",
+  "version": "1.0.0.2",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -16,18 +16,6 @@
       "name": "OIOUBL",
       "publisher": "Microsoft",
       "version": "18.0.23013.23795"
-    },
-    {
-      "id": "ba1776ba-1198-4b4c-a61e-c4612f1880d5",
-      "name": "IWorks Common",
-      "publisher": "Insight Works",
-      "version": "2.6.7920.1"
-    },
-    {
-      "id": "0e82e45f-317b-48ed-bb4b-beabd33e68f9",
-      "name": "YourGLS Labels",
-      "publisher": "Aktieselskabet Balance A/S",
-      "version": "18.0.1.15"
     }
   ],
   "screenshots": [],
