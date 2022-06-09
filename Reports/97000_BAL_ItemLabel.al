@@ -54,7 +54,7 @@ report 97000 "BAL WaterNLife Item Label"
                 column(EUSizeValue; GetAttributValue(Item."No.", 10))
                 {
                 }
-                column(UPC; GetAttributValue(Item."No.", 13))
+                column(UPC; PackageQty)
                 {
                 }
                 column(PurchOrderNo; PurchOrderNo)
@@ -75,11 +75,11 @@ report 97000 "BAL WaterNLife Item Label"
 
             trigger OnAfterGetRecord()
             var
-             
+
             begin
                 IBarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
                 BarcodeSymbology := Enum::"Barcode Symbology"::"EAN-13";
-                BarCodeText := IBarcodeFontProvider.EncodeFont(GTIN, BarcodeSymbology);             
+                BarCodeText := IBarcodeFontProvider.EncodeFont(GTIN, BarcodeSymbology);
             end;
         }
     }
@@ -101,7 +101,11 @@ report 97000 "BAL WaterNLife Item Label"
                         Caption = 'Purchase Order No.';
                         ApplicationArea = All;
                         TableRelation = "Purchase Header"."No." where("Document Type" = CONST(Order));
-
+                    }
+                    field(PackageQty; PackageQty)
+                    {
+                        Caption = 'Package Quantity:';
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -120,6 +124,17 @@ report 97000 "BAL WaterNLife Item Label"
         begin
             if NoOfLabels = 0 then
                 NoOfLabels := 1;
+        end;
+
+        trigger OnOpenPage()
+        var
+            ItemL: Record Item;
+        begin
+
+            if Item.GetFilter("No.") <> '' then
+                if iteml.get(Item.GetFilter("No.")) then
+                    PackageQty := GetAttributValue(Iteml."No.", 13);
+
         end;
     }
     local procedure GetAttributValue(No: Code[20]; AttributID: Integer): Text
@@ -149,4 +164,6 @@ report 97000 "BAL WaterNLife Item Label"
         ItemAttributeValue: Record "Item Attribute Value";
         AttributeValueMapping: Record "Item Attribute Value Mapping";
         PurchOrderNo: Code[20];
+        PackageQty: Text[30];
+
 }

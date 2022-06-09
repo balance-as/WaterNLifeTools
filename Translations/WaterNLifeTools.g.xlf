@@ -13,6 +13,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control NoOfLabels - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 208943483 - Control 2873583498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Quantity:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control PackageQty - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 208943483 - Control 3820838917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
