@@ -3,6 +3,81 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="WaterNLifeTools">
     <body>
       <group id="body">
+        <trans-unit id="Table 931661215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WaterNlife Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 1567358592 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug path</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug path - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3811440715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Durability</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Durability - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3713136612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GTIN No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field GTIN No. Series  - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2057898147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Output Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2736130265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Primary Kay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webshop PAyment URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Webshop Payment URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WaterNlife Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 540986563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Debug - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 1864885360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Webshop</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop Payment URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 2638806226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set salesorders to Location WBS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ChangelocationtoWBS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Label</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Print - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 208943483 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Label</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -42,6 +117,16 @@
           <source>delete worksheet</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
+          <source>GTIN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Bin Content Ext - Field BAL GTIN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
+          <source>Shopify Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shopify No - Property Caption</note>
         </trans-unit>
       </group>
     </body>

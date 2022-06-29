@@ -21,8 +21,8 @@ codeunit 97001 "BAL InsightFunc WNL"
     var
         iEventID: Integer;
         codRegionCode: code[10];
-//        cuJournalFuncs: Codeunit "WHI Journal Functions";
-  //      cuCommonFuncs: Codeunit "WHI Common Functions";
+    //        cuJournalFuncs: Codeunit "WHI Journal Functions";
+    //      cuCommonFuncs: Codeunit "WHI Common Functions";
 
     procedure BALExecuteEvent(PiEventId: integer; var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText);
     var
@@ -35,7 +35,8 @@ codeunit 97001 "BAL InsightFunc WNL"
 
             2000102:
                 BALAddItemTrackingInventory(ptrecEventParams, pbsoutput);
-
+            2000106:
+                PostInventoryBatch(ptrecEventParams, pbsoutput)
         end;
     end; // Case
 
@@ -49,20 +50,20 @@ codeunit 97001 "BAL InsightFunc WNL"
         Item: record Item;
         Item2: Record Item;
         TempReservationEntry: record "Reservation Entry";
-//        KMESetup: record "BAL Kaffe Mekka Setup";
+        //        KMESetup: record "BAL Kaffe Mekka Setup";
         LotNo: Code[20];
         lcuWHICommond: Codeunit "WHI Common Functions";
         CreateReservEntry: Codeunit "Create Reserv. Entry";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-      //  BALInsightFunc: Codeunit "BAL InsightFunc";
+        //  BALInsightFunc: Codeunit "BAL InsightFunc";
         ItemJnLine: Record "Item Journal Line";
         Status: Enum "Reservation Status";
         WHIBasicCountMgmt: Codeunit 23044924;
         TemplateName: code[10];
     begin
-        
+
         WHIBasicCountMgmt.executeEvent(97003, ptrecEventParams, pbsoutput);
-        
+
         location.get(ptrecEventParams.getValue('location'));
         itemno := ptrecEventParams.getValue('item_number');
         LotNo := ptrecEventParams.getValue('lot_number');
@@ -86,5 +87,16 @@ codeunit 97001 "BAL InsightFunc WNL"
         CreateReservEntry.CreateReservEntryFor(DATABASE::"Item Journal Line", 2, ItemJnLine."Journal Template Name", ItemJnLine."Journal Batch Name", 0, ItemJnLine."Line No.", ItemJnLine."Qty. per Unit of Measure", ItemJnLine.Quantity, ItemJnLine."Quantity (Base)", TempReservationEntry);
         CreateReservEntry.CreateEntry(ItemJnLine."Item No.", ItemJnLine."Variant Code", ItemJnLine."Location Code", ItemJnLine.Description, ItemJnLine."Posting Date", ItemJnLine."Posting Date", 0, Status::Prospect);
     end;
-
+ local procedure PostInventoryBatch(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        lcuWHICommond: Codeunit "WHI Common Functions";
+        ItemJnLine: Record "Item Journal Line";
+        ItemJnlPostBatch: Codeunit "Item Jnl.-Post Batch";
+    begin
+        ItemJnLine.SETRANGE("Journal Template Name", ptrecEventParams.getValue('Journal Template Name'));
+        ItemJnLine.SETRANGE("Journal Batch Name", ptrecEventParams.getValue('Name'));
+        IF ItemJnLine.FINDLAST THEN
+            ItemJnlPostBatch.RUN(ItemJnLine);
+        LcuWHICommond.generateSuccessReturn('Posted', PBSOutPut);
+    end;
 }

@@ -2,7 +2,7 @@
   "id": "910911f8-70c3-4773-ba1c-ba06a874a6dd",
   "name": "WaterNLifeTools",
   "publisher": "Aktieselskabet balance.as",
-  "version": "1.0.0.6",
+  "version": "1.0.0.10",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -24,7 +24,11 @@
     {"id": "d04cb6c5-68c8-41d7-8e25-824b48e14f04",
     "name": "Warehouse Insight Advanced WMS",
     "publisher": "Insight Works",
-    "version": "2.5.7837.0"}
+    "version": "2.5.7837.0"},
+    {"id": "96da1317-c2e8-42ec-aa19-216e33d0da19",
+    "name": "Scaptify",
+    "version": "19.8.17.0",
+    "publisher": "Scapta"}
   ],
   "screenshots": [],
   "platform": "1.0.0.0",

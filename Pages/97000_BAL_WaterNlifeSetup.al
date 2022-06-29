@@ -62,7 +62,22 @@ page 97000 "BAL WaterNlife Setup Card"
                     Report.run(Report::"BAL WaterNLife Item Label");
                 end;
             }
-
+            action(ChangelocationtoWBS)
+            {
+                Caption = 'Set salesorders to Location WBS';
+                ApplicationArea = All;
+                Image = Print;
+                trigger OnAction()
+                var
+                    SalesLine: record "Sales Line";
+                begin
+                    if confirm('Are You sure that You want to change salesline."Location code" to WBS',false) then begin
+                        salesline.setrange("Document Type", SalesLine."Document Type"::Order);
+                        SalesLine.SetRange(type, SalesLine.type::Item);
+                        SalesLine.ModifyAll("Location Code", 'WBS');
+                    end;
+                end;
+            }
         }
     }
 }
