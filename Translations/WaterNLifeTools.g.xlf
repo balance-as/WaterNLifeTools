@@ -133,6 +133,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item Ext - Field Qty. on Blank Purch Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 560150615 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>GTIN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item JnlLine Ext - Field BAL GTIN - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shopify Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -142,6 +147,11 @@
           <source>GTIN</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHSeActivitiLine Ext - Field BAL GTIN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3052150215 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3159546305">
+          <source>GTIN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHSeRecieptLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
       </group>
     </body>
