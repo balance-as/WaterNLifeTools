@@ -8,8 +8,8 @@ tableextension 97000 "BAL WHI Document Ext" extends "WHI Document List Buffer"
             CalcFormula = lookup("Sales Header"."Shopify Order No." WHERE("No." = FIELD("Source Document No.")));
             Editable = false;
             FieldClass = FlowField;
-
         }
+        
     }
 
     var

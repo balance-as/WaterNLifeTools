@@ -7,35 +7,33 @@ pageextension 97001 "BAL Item Card Ext" extends "Item Card"
 
     layout
     {
-/*        addafter(Item)
+        addafter("Qty. on Sales Order")
         {
-            group(WaterNlife)
+            field("BAL Qty on Blanket Order"; rec."BAL Qty on Blanket Order")
             {
-                Caption = 'WaterNlife fields';
-                
+                ApplicationArea = All;
             }
         }
-  */
     }
     actions
     {
         // Add changes to page actions here
         addlast(processing)
         {
-  /*          action(GetGTIN)
-            {
-                Caption = 'Get GTIN no.';
-                ToolTip = 'Get new GTIN Number from No. series';
-                Image = ActivateDiscounts;
-                ApplicationArea = All;
-                trigger OnAction()
-                var
-                    BalInsightFunc: Codeunit "BAL InsightFunc";
-                begin
-                    BalInsightFunc.GetGTIN(Rec);
-                end;
-            }
-    */
+            /*          action(GetGTIN)
+                      {
+                          Caption = 'Get GTIN no.';
+                          ToolTip = 'Get new GTIN Number from No. series';
+                          Image = ActivateDiscounts;
+                          ApplicationArea = All;
+                          trigger OnAction()
+                          var
+                              BalInsightFunc: Codeunit "BAL InsightFunc";
+                          begin
+                              BalInsightFunc.GetGTIN(Rec);
+                          end;
+                      }
+              */
         }
         addfirst(Reporting)
         {

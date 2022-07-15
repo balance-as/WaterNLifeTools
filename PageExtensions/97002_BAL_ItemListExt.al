@@ -10,7 +10,7 @@ pageextension 97002 "BAL Item List Ext" extends "Item List"
         // Add changes to page layout here
         addfirst(factboxes)
         {
-            
+
         }
     }
 
@@ -24,6 +24,8 @@ pageextension 97002 "BAL Item List Ext" extends "Item List"
                 Caption = 'Item Label';
                 ApplicationArea = All;
                 Image = AdjustItemCost;
+                Promoted = true;
+                PromotedCategory = Report;
                 trigger OnAction()
                 var
                     Rec2: Record Item;
