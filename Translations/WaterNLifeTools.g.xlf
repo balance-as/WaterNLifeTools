@@ -128,6 +128,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item Ext - Field BAL Qty on Blanket Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 471269725 - Field 153993133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Qty. on Purch. Blanket Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item Ext - Field Qty. on Blank Purch Order - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shopify Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

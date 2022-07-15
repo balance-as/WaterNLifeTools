@@ -13,6 +13,10 @@ pageextension 97001 "BAL Item Card Ext" extends "Item Card"
             {
                 ApplicationArea = All;
             }
+             field("Qty. on Blank Purch Order";rec."Qty. on Blank Purch Order")
+            {
+                ApplicationArea = All;
+            }
         }
     }
     actions
