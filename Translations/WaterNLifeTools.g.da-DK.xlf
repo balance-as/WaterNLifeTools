@@ -1,167 +1,211 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="en-US" original="WaterNLifeTools">
+  <file datatype="xml" source-language="en-US" target-language="da-DK" original="WaterNLifeTools.g.xlf">
     <body>
       <group id="body">
         <trans-unit id="Table 931661215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
+          <target>WaterNlife Opsætning</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug Mode</source>
+          <target>Debug Mode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 1567358592 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug path</source>
+          <target>Debug Sti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Debug path - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 3811440715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Durability</source>
+          <target>Udløbsdataformel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Durability - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 3713136612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GTIN No. Series</source>
+          <target>GTIN nummer serie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field GTIN No. Series  - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Journal Batch Name</source>
+          <target>Kladde Navn</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Journal Batch Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2057898147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Output Journal Template Name</source>
+          <target>Afgang Kladdetype navn</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Output Journal Template Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2736130265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Primary Key</source>
+          <target>Nøgle</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Primary Kay - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webshop PAyment URL</source>
+          <target>Webshop betalings URL</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Webshop Payment URL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
+          <target>WaterNlige Opsætning</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 540986563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug mode</source>
+          <target>Debug Mode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Debug - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 1864885360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webshop</source>
+          <target>Webshop</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount</source>
+          <target>%1 = Webordre Nr., %2 = Salgs Ordre Nr., %3 = Valutakode, %4 = Beløb</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop Payment URL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Action 2638806226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set salesorders to Location WBS</source>
+          <target>Sæt Salgsordrer til Location WBS</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ChangelocationtoWBS - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print Label</source>
+          <target>Udskriv Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 208943483 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Label</source>
+          <target>Vare Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 208943483 - Control 1722142039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. of Labels</source>
+          <target>Antal kopier</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control NoOfLabels - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 208943483 - Control 2873583498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Package Quantity:</source>
+          <target>Pakke antal:</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control PackageQty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 208943483 - Control 3820838917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Order No.</source>
+          <target>Købsordre nr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control PurchOrderNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Item Label</source>
+          <target>Vare Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action ItemLabel - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3442673531 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>Item Label</source>
+          <target>Vare Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action ItemLabel - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>Just testing</source>
+          <target>Kun til test</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>delete worksheet</source>
+          <target>Slet arket</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
+          <target>GTIN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Bin Content Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 471269725 - Field 1353114017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Qty. on Blanket Order</source>
+          <target>Antal på rammeordre</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item Ext - Field BAL Qty on Blanket Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 471269725 - Field 153993133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Qty. on Purch. Blanket Order</source>
+          <target>Antal på Købsrammeordre</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item Ext - Field Qty. on Blank Purch Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 560150615 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>GTIN</source>
+          <target>GTIN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item JnlLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shopify Order No.</source>
+          <target>Shopify Ordrenr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shopify No - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3591542144 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
           <source>GTIN</source>
+          <target>GTIN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHSeActivitiLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3052150215 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3159546305">
           <source>GTIN</source>
+          <target>GTIN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHSeRecieptLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 4191242996 - Change 4046090368 - Method 4124349006 - NamedType 218166550" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 4191242996">
           <source>Do You want to continue without filter on %1?</source>
+          <target>Vil du fortsætte uden filter på %1?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ConfirmTxt</note>
         </trans-unit>
         <trans-unit id="ReportExtension 4191242996 - Change 4046090368 - Method 4124349006 - NamedType 848472796" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 4191242996">
           <source>Report stopped!\Please Add filter for %1!</source>
+          <target>Kørsel er stoppet!\Tilføj filter for %1!</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get GTIN no.</source>
+          <target>Hent GTIN nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get new GTIN Number from No. series</source>
+          <target>Hent nyt GTIN nr. fra nummerserie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>
