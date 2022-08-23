@@ -36,7 +36,9 @@ codeunit 97001 "BAL InsightFunc WNL"
             2000102:
                 BALAddItemTrackingInventory(ptrecEventParams, pbsoutput);
             2000106:
-                PostInventoryBatch(ptrecEventParams, pbsoutput)
+                PostInventoryBatch(ptrecEventParams, pbsoutput);
+            2000107:
+                SetBinBlocking(ptrecEventParams, pbsoutput);
         end;
     end; // Case
 
@@ -87,7 +89,8 @@ codeunit 97001 "BAL InsightFunc WNL"
         CreateReservEntry.CreateReservEntryFor(DATABASE::"Item Journal Line", 2, ItemJnLine."Journal Template Name", ItemJnLine."Journal Batch Name", 0, ItemJnLine."Line No.", ItemJnLine."Qty. per Unit of Measure", ItemJnLine.Quantity, ItemJnLine."Quantity (Base)", TempReservationEntry);
         CreateReservEntry.CreateEntry(ItemJnLine."Item No.", ItemJnLine."Variant Code", ItemJnLine."Location Code", ItemJnLine.Description, ItemJnLine."Posting Date", ItemJnLine."Posting Date", 0, Status::Prospect);
     end;
- local procedure PostInventoryBatch(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+
+    local procedure PostInventoryBatch(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
         ItemJnLine: Record "Item Journal Line";
@@ -98,5 +101,21 @@ codeunit 97001 "BAL InsightFunc WNL"
         IF ItemJnLine.FINDLAST THEN
             ItemJnlPostBatch.RUN(ItemJnLine);
         LcuWHICommond.generateSuccessReturn('Posted', PBSOutPut);
+    end;
+
+    local procedure SetBinBlocking(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        lcuWHICommond: Codeunit "WHI Common Functions";
+        Bin: record Bin;
+    begin
+        bin.setrange("Location Code", ptrecEventParams.getValue('location'));
+        bin.setrange("Code", ptrecEventParams.getValue('bin_code'));
+        if bin.get(ptrecEventParams.getValue('location'), ptrecEventParams.getValue('bin_code')) then begin
+             if bin."Block Movement" = bin."Block Movement"::Outbound then
+                bin."Block Movement" := bin."Block Movement"::" "
+            else
+                bin."Block Movement" := bin."Block Movement"::Outbound;
+            bin.modify;
+        end;
     end;
 }
