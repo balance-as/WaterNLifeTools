@@ -5,6 +5,7 @@
             "name": "Microsoft cloud sandbox",
             "request": "launch",
             "type": "al",
+            "server": "https://businesscentral.dynamics.com/39d558ed-d676-4dfd-9d1c-7110bb396a03/sandboxmay22",
             "environmentType": "Sandbox",
             "environmentName": "Sandboxmay22",
             "startupObjectId": 30,

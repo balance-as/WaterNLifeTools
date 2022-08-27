@@ -107,15 +107,32 @@ codeunit 97001 "BAL InsightFunc WNL"
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
         Bin: record Bin;
+        BinContent: Record "Bin Content";
     begin
         bin.setrange("Location Code", ptrecEventParams.getValue('location'));
         bin.setrange("Code", ptrecEventParams.getValue('bin_code'));
+        BinContent.setrange("Location Code", ptrecEventParams.getValue('location'));
+        BinContent.setrange("bin Code", ptrecEventParams.getValue('bin_code'));
+       // BinContent.setrange("Item No.", ptrecEventParams.getValue('item_no'));
+
         if bin.get(ptrecEventParams.getValue('location'), ptrecEventParams.getValue('bin_code')) then begin
-             if bin."Block Movement" = bin."Block Movement"::Outbound then
-                bin."Block Movement" := bin."Block Movement"::" "
-            else
+
+            if bin."Block Movement" = bin."Block Movement"::Outbound then begin
+                bin."Block Movement" := bin."Block Movement"::" ";
+                bincontent.modifyall("Block Movement", BinContent."Block Movement"::" ");
+            end else begin
                 bin."Block Movement" := bin."Block Movement"::Outbound;
+                bincontent.modifyall("Block Movement", BinContent."Block Movement"::Outbound);
+            end;
+            /*
+            if bin.Dedicated then
+                bin.Dedicated := false
+            else
+                bin.dedicated := true;
+                */
             bin.modify;
+
+
         end;
     end;
 }
