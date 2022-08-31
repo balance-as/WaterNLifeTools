@@ -195,6 +195,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ErrorTxt</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get GTIN no.</source>
+          <target>Hent GTIN Nummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get new GTIN Number from No. series</source>
+          <target>GTIN nr serie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Inventory registrered</source>
+          <target>Angiv nul i optalt antal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3292501506 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2923060300">
+          <source>Clear Inventory registrered</source>
+          <target>Angiv nul i optalt antal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Reclass - Action ClearInventory - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>

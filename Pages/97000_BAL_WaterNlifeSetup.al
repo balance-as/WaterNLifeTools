@@ -71,12 +71,34 @@ page 97000 "BAL WaterNlife Setup Card"
                 var
                     SalesLine: record "Sales Line";
                 begin
-                    if confirm('Are You sure that You want to change salesline."Location code" to WBS',false) then begin
+                    if confirm('Are You sure that You want to change salesline."Location code" to WBS', false) then begin
                         salesline.setrange("Document Type", SalesLine."Document Type"::Order);
                         SalesLine.SetRange(type, SalesLine.type::Item);
                         SalesLine.ModifyAll("Location Code", 'WBS');
                     end;
                 end;
+            }
+            action(ClearInventory)
+            {
+                Caption = 'Clear Inventory registrered';
+                ApplicationArea = All;
+                //Visible = false;
+
+                trigger OnAction()
+                var
+                    ItemJournalLine: record "Item Journal Line";
+
+                begin
+                    ItemJournalLine.SetRange("Journal Template Name", 'PHYS. INVE');
+                    ItemJournalLine.SetRange("Journal Batch Name", 'SR');
+                    if ItemJournalLine.findset then
+                        repeat
+                            ItemJournalLine.Validate("Qty. (Phys. Inventory)", 0);
+                            ItemJournalLine.modify;
+                        until ItemJournalLine.next = 0;
+
+                end;
+
             }
         }
     }

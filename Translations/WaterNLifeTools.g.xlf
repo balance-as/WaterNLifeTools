@@ -73,6 +73,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ChangelocationtoWBS - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Inventory registrered</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print Label</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -117,6 +122,11 @@
           <source>delete worksheet</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3292501506 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
+          <source>Clear Inventory registrered</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Reclass - Action ClearInventory - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
