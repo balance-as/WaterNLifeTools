@@ -100,6 +100,23 @@ page 97000 "BAL WaterNlife Setup Card"
                 end;
 
             }
+            action(Clear2Bincontent)
+            {
+                Caption = 'Clear 2 Bin Content';
+                ApplicationArea = All;
+                //Visible = false;
+
+                trigger OnAction()
+                var
+                    BinContent: record "Bin Content";
+
+                begin
+
+                    BinContent.setrange("Min. Qty.", 2);
+                    BinContent.ModifyAll("Min. Qty.", 0);
+                end;
+
+            }
         }
     }
 }
