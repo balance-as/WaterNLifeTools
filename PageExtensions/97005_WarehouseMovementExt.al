@@ -1,15 +1,14 @@
-pageextension 97003 "BAL Bin Content Ext" extends "Bin Contents"
+pageextension 97005 "BAL Warehouse Movement ext" extends "Warehouse Movement"
 {
     layout
     {
-        addafter("Item No.")
+        addafter("Sorting Method")
         {
-            field("BAL GTIN"; rec."BAL GTIN")
+            field("Registering No. Series"; rec."Registering No. Series")
             {
                 ApplicationArea = all;
             }
         }
-
     }
 
     actions

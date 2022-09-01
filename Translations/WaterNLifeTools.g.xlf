@@ -74,7 +74,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ChangelocationtoWBS - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Action 350904577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clear Inventory registrered</source>
+          <source>Clear 2 Bin Content</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Clear2Bincontent - Property Caption</note>
         </trans-unit>
