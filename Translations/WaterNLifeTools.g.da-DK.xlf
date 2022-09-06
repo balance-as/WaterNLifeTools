@@ -87,6 +87,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ChangelocationtoWBS - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 350904577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear 2 Bin Content</source>
+          <target>slet 2 i bin content</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Clear2Bincontent - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear Inventory registrered</source>
+          <target>Angiv nul i optalt antal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print Label</source>
           <target>Udskriv Label</target>
@@ -141,6 +153,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3292501506 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2923060300">
+          <source>Clear Inventory registrered</source>
+          <target>Angiv nul i optalt antal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Reclass - Action ClearInventory - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
           <target>GTIN</target>
@@ -165,11 +183,65 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item JnlLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1515121953 - Field 1383471679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Pick Exist</source>
+          <target>Pluk oprettet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Salesheader Ext. - Field BAL Pick Exist - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3984511117 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Shipment ID</source>
+          <target>Forsendelses ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer Order Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3984511117 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Tracking ID</source>
+          <target>Sporings ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer Order Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2495465441 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3550754772">
+          <source>Shipment ID</source>
+          <target>Forsendelses ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ReceiptHdr Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2495465441 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3550754772">
+          <source>Tracking ID</source>
+          <target>Sporings ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ReceiptHdr Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2317455693 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1340367376">
+          <source>Shipment ID</source>
+          <target>Forsendelses ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ShipmentHdr Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2317455693 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1340367376">
+          <source>Tracking ID</source>
+          <target>Sporings ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ShipmentHdr Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2424118337 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
+          <source>Shipment ID</source>
+          <target>Forsendelses ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shopify Order No.</source>
           <target>Shopify Ordrenr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shopify No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 869153732 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Shipment ID</source>
+          <target>Forsendelses ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field BAL Shipment ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3591542144 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
           <source>GTIN</source>
@@ -206,18 +278,6 @@
           <target>GTIN nr serie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2805204955 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clear Inventory registrered</source>
-          <target>Angiv nul i optalt antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3292501506 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2923060300">
-          <source>Clear Inventory registrered</source>
-          <target>Angiv nul i optalt antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Reclass - Action ClearInventory - Property Caption</note>
         </trans-unit>
       </group>
     </body>

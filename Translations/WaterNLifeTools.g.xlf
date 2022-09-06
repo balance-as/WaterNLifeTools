@@ -153,10 +153,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item JnlLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1515121953 - Field 1383471679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Pick Exist</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Salesheader Ext. - Field BAL Pick Exist - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3984511117 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Shipment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer Order Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3984511117 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
+          <source>Tracking ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer Order Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2495465441 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3550754772">
+          <source>Shipment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ReceiptHdr Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2495465441 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3550754772">
+          <source>Tracking ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ReceiptHdr Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2317455693 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1340367376">
+          <source>Shipment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ShipmentHdr Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2317455693 - Field 1890056703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1340367376">
+          <source>Tracking ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ShipmentHdr Ext - Field BAL Tracking ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2424118337 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
+          <source>Shipment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shipment ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shopify Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Shopify No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 869153732 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Shipment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field BAL Shipment ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3591542144 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
           <source>GTIN</source>
