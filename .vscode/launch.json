@@ -8,7 +8,7 @@
             "server": "https://businesscentral.dynamics.com/39d558ed-d676-4dfd-9d1c-7110bb396a03/sandboxmay22",
             "environmentType": "Sandbox",
             "environmentName": "Sandboxmay22",
-            "startupObjectId": 30,
+            "startupObjectId": 5742,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,

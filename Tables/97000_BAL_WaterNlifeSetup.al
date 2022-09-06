@@ -1,6 +1,6 @@
 table 97000 "BAL WaterNlife Setup"
 {
-       Caption = 'WaterNlife Setup';
+    Caption = 'WaterNlife Setup';
     DataClassification = CustomerContent;
     LookupPageId = "BAL WaterNlife Setup Card";
     DrillDownPageId = "BAL WaterNlife Setup Card";
@@ -11,13 +11,13 @@ table 97000 "BAL WaterNlife Setup"
         {
             Caption = 'Primary Key';
             DataClassification = CustomerContent;
-        }        
+        }
         field(106; Durability; DateFormula)
         {
             Caption = 'Durability';
             DataClassification = CustomerContent;
         }
-        
+
         field(5400; "Output Journal Template Name"; Code[10])
         {
             Caption = 'Output Journal Template Name';
@@ -30,7 +30,7 @@ table 97000 "BAL WaterNlife Setup"
             DataClassification = CustomerContent;
             TableRelation = "Item Journal Batch".Name where("Template Type" = filter(Output), "Journal Template Name" = field("Output Journal Template Name"));
         }
-       
+
         field(5410; "Debug mode"; Boolean)
         {
             Caption = 'Debug Mode';
@@ -46,11 +46,17 @@ table 97000 "BAL WaterNlife Setup"
             Caption = 'Webshop PAyment URL';
             DataClassification = CustomerContent;
         }
-         field(50100; "GTIN No. Series "; Text[250])
+        field(50100; "GTIN No. Series "; Text[250])
         {
             Caption = 'GTIN No. Series';
             DataClassification = CustomerContent;
             TableRelation = "No. Series";
+        }
+        field(50020; "Bin Ranking filter"; text[100])
+        {
+            Caption = 'Bin ranking Filter';
+            DataClassification = ToBeClassified;
+
         }
     }
 

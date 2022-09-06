@@ -8,6 +8,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2154886133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin ranking Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Bin Ranking filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug Mode</source>
           <note from="Developer" annotates="general" priority="2"></note>

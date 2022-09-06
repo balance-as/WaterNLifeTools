@@ -43,6 +43,10 @@ page 97000 "BAL WaterNlife Setup Card"
                 {
                     ApplicationArea = all;
                 }
+                field("Bin Ranking filter"; rec."Bin Ranking filter")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
