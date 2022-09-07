@@ -133,10 +133,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3292501506 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
+        <trans-unit id="PageExtension 3037849121 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Clear Inventory registrered</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Reclass - Action ClearInventory - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Phys Inventory Journal Ext - Action ClearInventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3639017585 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2466464261">
+          <source>Move-to Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action ClearInventory - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>

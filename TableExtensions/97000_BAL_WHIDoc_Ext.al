@@ -10,7 +10,7 @@ tableextension 97000 "BAL WHI Document Ext" extends "WHI Document List Buffer"
             FieldClass = FlowField;
         }
 
-        Field(97001; "BAL Shipment ID"; Code[50])
+        Field(97001; "BAL Shipment ID"; Code[100])
         {
             Caption = 'Shipment ID';
             CalcFormula = lookup("Transfer Header"."BAL Shipment ID" WHERE("No." = FIELD("Source Document No.")));

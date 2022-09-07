@@ -1,4 +1,4 @@
-pageextension 97004 "Bal Phys Inventory Journal Ext" extends "Phys. Inventory Journal"
+pageextension 97009 "Bal ReclassJnl Ext" extends "Item Reclass. Journal"
 {
     layout
     {
@@ -9,9 +9,9 @@ pageextension 97004 "Bal Phys Inventory Journal Ext" extends "Phys. Inventory Jo
     {
         addafter("&Item")
         {
-            action(ClearInventory)
+            action(Movetolocation)
             {
-                Caption = 'Clear Inventory registrered';
+                Caption = 'Move-to Location';
                 ApplicationArea = All;
                 //Visible = false;
 
@@ -24,7 +24,8 @@ pageextension 97004 "Bal Phys Inventory Journal Ext" extends "Phys. Inventory Jo
                     ItemJournalLine.SetRange("Journal Batch Name", rec."Journal Batch Name");
                     if ItemJournalLine.findset then
                         repeat
-                            ItemJournalLine.Validate("Qty. (Phys. Inventory)", 0);
+                            ItemJournalLine.Validate("New Location Code", 'GRAMRODE13');
+                            ItemJournalLine.validate("New Bin Code", ItemJournalLine."Bin Code");
                             ItemJournalLine.modify;
                         until ItemJournalLine.next = 0;
 
