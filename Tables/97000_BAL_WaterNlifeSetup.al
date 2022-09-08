@@ -58,6 +58,17 @@ table 97000 "BAL WaterNlife Setup"
             DataClassification = ToBeClassified;
 
         }
+        field(50120; "Customer Posting Group"; text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Customer Posting Group';
+        }
+        field(27; "Shipment Method Code"; Code[10])
+        {
+            Caption = 'Shipment Method Code';
+            TableRelation = "Shipment Method";
+        }
+
     }
 
     keys
