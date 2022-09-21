@@ -39,6 +39,8 @@ codeunit 97001 "BAL InsightFunc WNL"
                 PostInventoryBatch(ptrecEventParams, pbsoutput);
             2000107:
                 SetBinBlocking(ptrecEventParams, pbsoutput);
+            2000108:
+                GetItemJournalBacthName(ptrecEventParams, pbsoutput);
         end;
     end; // Case
 
@@ -117,5 +119,22 @@ codeunit 97001 "BAL InsightFunc WNL"
                 bin.validate("Block Movement", bin."Block Movement"::Outbound);
             bin.modify;
         end;
+    end;
+
+    local procedure GetItemJournalBacthName(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        ItemJnlBatch: record "Item Journal Batch";
+        WhereUsed: Record "BAL Where Used";
+        lcuWHICommond: Codeunit "WHI Common Functions";
+    begin
+        ItemJnlBatch.SetRange("Template Type"::Item);
+        WhereUsed.DeleteAll;
+        if ItemJnlBatch.findset Then
+            repeat
+                WhereUsed.No := ItemJnlBatch.name;
+                WhereUsed.Description := ItemJnlBatch.Description;
+                WhereUsed.Insert()
+            until ItemJnlBatch.next = 0;
+        lcuWHICommond.generateSuccessReturn('', pbsoutput);
     end;
 }

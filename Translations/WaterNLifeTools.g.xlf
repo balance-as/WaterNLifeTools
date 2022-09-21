@@ -13,6 +13,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Bin Ranking filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 410940989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Customer Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug Mode</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -48,10 +53,40 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Primary Kay - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2205104606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Method Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Shipment Method Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webshop PAyment URL</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Webshop Payment URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 949215307 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 180543479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Raw Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field RawNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 605781948 - NamedType 71159511" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post occurred, and Printing has been queued</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit WMDM Extension Post and Print - NamedType tcPostAndPrint</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
