@@ -1,0 +1,340 @@
+codeunit 97003 "BAL WHI Basic Count Mgmt."
+{
+    // ************************
+    // Copyright Notice
+    // This objects content is copyright of Insight Works 2011.  All rights reserved.
+    // Any redistribution or reproduction of part or all of the contents in any form is prohibited.
+    // ************************
+
+
+    TableNo = "IWX Event Param";
+
+    trigger OnRun()
+    var
+        ltxtOutputText: BigText;
+        liEventID: Integer;
+        losReturnMessage: OutStream;
+    begin
+        liEventID := Rec.getEvent();
+        executeEvent(liEventID, Rec, ltxtOutputText);
+        Rec."Extensibility Blob".CreateOutStream(losReturnMessage);
+        ltxtOutputText.Write(losReturnMessage);
+        Rec.Modify();
+    end;
+
+
+
+    procedure executeEvent(piEventID: Integer; var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    begin
+        iEventID := piEventID;
+
+        case piEventID of
+            97000:
+                getJournalBatchList(ptrecEventParams, pbsOutput);
+            2000110:
+                getJournalBatch(ptrecEventParams, pbsOutput);
+            97002:
+                updateJournalLine(ptrecEventParams, pbsOutput);
+            97003:
+                createJournalLine(ptrecEventParams, pbsOutput);
+            97004:
+                deleteJournalLine(ptrecEventParams, pbsOutput);
+            2000109:
+                getJournalBatchList(ptrecEventParams, pbsOutput);
+        //97005:
+        //    createReservation(ptrecEventParams, pbsOutput);
+        //97006:
+        //    updateReservation(ptrecEventParams, pbsOutput);
+        //97007:
+        //    deleteReservation(ptrecEventParams, pbsOutput);
+        //97008:
+        //    listReservations(ptrecEventParams, pbsOutput);
+        end;
+    end;
+
+    //<FUNC>
+    // This function returns a list of all available Physical Item Journal batches of type "Phys. Inventory"
+    //</FUNC>
+    local procedure getJournalBatchList(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJnlBatch: Record "Item Journal Batch";
+        lrrefLines: RecordRef;
+        ldnOutput: TextBuilder;
+    begin
+        lrecItemJnlBatch.SetRange(lrecItemJnlBatch."Journal Template Name", GetGenJournalTemplateName());
+
+        if lrecItemJnlBatch.FindSet() then;
+        lrrefLines.GetTable(lrecItemJnlBatch);
+
+        cuDatasetTools.BuildLinesOnlyDataset(iEventID, lrrefLines, false, ldnOutput);
+
+        pbsOutput.AddText(ldnOutput.ToText());
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    //<FUNC>
+    // This function returns an Item Journal batch of type "Phys. Inventory"
+    //</FUNC>
+    local procedure getJournalBatch(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJnlBatch: Record "Item Journal Batch";
+        lrecItemJnlLine: Record "Item Journal Line";
+        lrecLocation: Record Location;
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lcodBatchName: Code[20];
+    begin
+        lcodBatchName := CopyStr(ptrecEventParams.GetExtendedValue('Name'), 1, MaxStrLen(lcodBatchName));
+        ptrecEventParams.getLocation(lrecLocation);
+
+        lrecItemJnlBatch.Get(GetgenJournalTemplateName(), lcodBatchName);
+
+        // error out if a no. series has been set on batch (better to do up front than when posting)
+        if lrecItemJnlBatch."No. Series" <> '' then
+            Error(tcWrongSeriesErr,
+                  lcodBatchName,
+                  lrecItemJnlBatch.FieldCaption("No. Series"),
+                  lrecItemJnlBatch.FieldCaption("Posting No. Series"));
+
+        // filter the header
+        lrecItemJnlBatch.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
+        lrecItemJnlBatch.SetRange(Name, lcodBatchName);
+        if lrecItemJnlBatch.FindSet() then;
+
+        // filter the lines
+        lrecItemJnlLine.Reset();
+        lrecItemJnlLine.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
+        lrecItemJnlLine.SetRange("Journal Batch Name", lcodBatchName);
+        lrecItemJnlLine.SetRange("Location Code", lrecLocation.Code);
+        if lrecItemJnlLine.FindSet() then;
+
+        // prepare the recordrefs
+        lrrefHeader.GetTable(lrecItemJnlBatch);
+        lrrefLine.GetTable(lrecItemJnlLine);
+
+        lbNeedsItemTrackingTable := ptrecEventParams.getNeedsItemTrackingTable();
+
+        // build the xml
+        cuDatasetTools.BuildHeaderLineDataset(
+          iEventID,
+          lrrefHeader,
+          lrrefLine,
+          lbNeedsItemTrackingTable,
+          ldnOutput);
+
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lcodBatchName);
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    //<FUNC>
+    // This function updates the Item Journal Batch Lines Quantities
+    //</FUNC>
+    local procedure createJournalLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJournalLine: Record "Item Journal Line";
+        lrrefItemJournalLine: RecordRef;
+        ldnOutput: TextBuilder;
+        ldtPostingDate: Date;
+        lcodItemNo: Code[20];
+        lcodVariant: Code[10];
+        lcodJournalBatchNo: Code[10];
+        lcodBin: Code[20];
+        lcodJournalTemplateName: Code[10];
+        lcodLocation: Code[10];
+        ldQuantity: Decimal;
+        liNewLineNumber: Integer;
+    begin
+        lcodJournalTemplateName := GetJournalTemplateName();
+        lcodJournalBatchNo := CopyStr(ptrecEventParams.GetExtendedValue('Name'), 1, MaxStrLen(lcodJournalBatchNo));
+        if (lcodJournalBatchNo = '') then // if we don't have a known batch, get an auto-batch.
+            lcodJournalBatchNo := cuJournalFuncs.getItemJnlPhysInvBatchToUse(ptrecEventParams);
+
+        ldQuantity := ptrecEventParams.getValueAsDecimal('quantity');
+        lcodItemNo := CopyStr(ptrecEventParams.GetExtendedValue('item_number'), 1, MaxStrLen(lcodItemNo));
+        lcodVariant := CopyStr(ptrecEventParams.GetExtendedValue('variant_code'), 1, MaxStrLen(lcodVariant));
+        lcodBin := CopyStr(ptrecEventParams.GetExtendedValue('bin'), 1, MaxStrLen(lcodBin));
+        lcodLocation := CopyStr(ptrecEventParams.GetExtendedValue('location'), 1, MaxStrLen(lcodLocation));
+        ldtPostingDate := cuCommonFuncs.GetTodaysDate(ptrecEventParams);
+
+        //Insert
+        liNewLineNumber := CreateInventoryEntry(lcodJournalBatchNo, lcodItemNo, lcodLocation, lcodVariant, lcodBin, ldQuantity, ldtPostingDate);
+        lrecItemJournalLine.Get(lcodJournalTemplateName, lcodJournalBatchNo, liNewLineNumber);
+        lrecItemJournalLine.SetRecFilter();
+        lrrefItemJournalLine.GetTable(lrecItemJournalLine);
+        cuDatasetTools.BuildLineTableEmbedRes(97001, lrrefItemJournalLine, false, ldnOutput);
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lcodJournalBatchNo);
+        ptrecEventParams.setValue('New Quantity', Format(ldQuantity));
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    //<FUNC>
+    // This function updates the Physical Inventory Journal Batch Lines Quantities
+    //</FUNC>
+    local procedure updateJournalLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJournalLine: Record "Item Journal Line";
+        lrrefUpdatedLine: RecordRef;
+        ldQuantity: Decimal;
+        ldnOutput: TextBuilder;
+        ldPreviousQuantity: Decimal;
+    begin
+        ldQuantity := ptrecEventParams.getValueAsDecimal('quantity');
+
+        getSpecificLine(ptrecEventParams, lrecItemJournalLine);
+
+        ldPreviousQuantity := lrecItemJournalLine."Qty. (Phys. Inventory)";
+        lrecItemJournalLine.Validate("Qty. (Phys. Inventory)", ldQuantity);
+
+        lrecItemJournalLine.Modify();
+        lrecItemJournalLine.SetRecFilter(); // only care about our 1 line that we just updated
+        lrrefUpdatedLine.GetTable(lrecItemJournalLine);
+        cuDatasetTools.BuildLineTableEmbedRes(97001, lrrefUpdatedLine, false, ldnOutput);
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lrecItemJournalLine."Journal Batch Name");
+        ptrecEventParams.setValue('Line No.', Format(lrecItemJournalLine."Line No."));
+        ptrecEventParams.setValue('Previous Quantity', Format(ldPreviousQuantity));
+        ptrecEventParams.setValue('New Quantity', Format(ldQuantity));
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    //<FUNC>
+    // This function deletes the selected physical inventory journal line
+    //</FUNC>
+    local procedure deleteJournalLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJournalLine: Record "Item Journal Line";
+    begin
+        getSpecificLine(ptrecEventParams, lrecItemJournalLine);
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lrecItemJournalLine."Journal Batch Name");
+        ptrecEventParams.setValue('Line No.', Format(lrecItemJournalLine."Line No."));
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+
+        lrecItemJournalLine.Delete();
+        cuCommonFuncs.generateSuccessReturn(pbsOutput);
+    end;
+
+    local procedure getSpecificLine(var ptrecEventParams: Record "IWX Event Param" temporary; var precOutPhysJournalLine: Record "Item Journal Line") pbSuccess: Boolean
+    var
+        lcodJournalTemplateName: Code[10];
+        lcodJournalBatchName: Code[10];
+    begin
+        lcodJournalTemplateName := GetJournalTemplateName();
+        lcodJournalBatchName := CopyStr(ptrecEventParams.GetExtendedValue('Name'), 1, MaxStrLen(lcodJournalBatchName));
+        // if we don't have a known batch, get an auto-batch.
+        if (lcodJournalBatchName = '') then
+            lcodJournalBatchName := cuJournalFuncs.getItemJnlPhysInvBatchToUse(ptrecEventParams);
+        pbSuccess := precOutPhysJournalLine.Get(lcodJournalTemplateName, lcodJournalBatchName, ptrecEventParams.getValueAsInt('Line No.'));
+    end;
+
+    local procedure CreateInventoryEntry(pcodBatchName: Code[10]; pcodItemNo: Text; pcodLocationCode: Code[20]; pcodVariant: Text; pcodBinCode: Code[20]; pdQuantity: Decimal; pdtPostingDate: Date): Integer
+    var
+        lrecItemJnl: Record "Item Journal Line";
+        lrecItemJnlTemplate: Record "Item Journal Template";
+        lrecItemJnlBatch: Record "Item Journal Batch";
+        lrecBinContent: Record "Bin Content";
+        lrecLocation: Record "Location";
+        lrecItem: Record "Item";
+        lnLineNo: Integer;
+    begin
+        // adds a journal line for given params
+
+
+        lrecItemJnlTemplate.SetRange("Page ID", PAGE::"Phys. Inventory Journal");
+        lrecItemJnlTemplate.SetRange(Type, lrecItemJnlTemplate.Type::"Phys. Inventory");
+        lrecItemJnlTemplate.FindFirst();
+
+        lrecItemJnlBatch.Get(lrecItemJnlTemplate.Name, pcodBatchName);
+
+        lrecItemJnl.SetRange("Journal Template Name", lrecItemJnlTemplate.Name);
+        lrecItemJnl.SetRange("Journal Batch Name", pcodBatchName);
+
+        if lrecItemJnl.FindLast() then;
+
+        lnLineNo := lrecItemJnl."Line No." + 10000;
+
+        Clear(lrecItemJnl);
+
+        lrecItemJnl."Journal Template Name" := lrecItemJnlTemplate.Name;
+        lrecItemJnl."Journal Batch Name" := pcodBatchName;
+        lrecItemJnl."Source Code" := lrecItemJnlTemplate."Source Code";
+        lrecItemJnl."Entry Type" := lrecItemJnl."Entry Type"::"Positive Adjmt."; //lrecItemJnlTemplate.Type.AsInteger();
+
+        lrecItemJnl."Line No." := lnLineNo;
+
+        lrecItemJnl.Validate("Posting Date", pdtPostingDate);
+        lrecItemJnl."Document No." := 'INV' + Format(pdtPostingDate, 0, '<year4>-<day,2>-<month,2>');
+        lrecItemJnl."Phys. Inventory" := false;
+        lrecItemJnl.Validate("Item No.", pcodItemNo);
+        lrecItemJnl.Validate("Qty. per Unit of Measure", 1);
+        lrecItemJnl.Validate("Location Code", pcodLocationCode);
+        lrecItemJnl.Validate("Variant Code", pcodVariant);
+        if pcodBinCode <> '' then
+            lrecItemJnl.Validate("Bin Code", pcodBinCode);
+
+        lrecItemJnl."Phys. Inventory" := true;
+        lrecItemJnl.Insert(true);
+
+        lrecItemJnl.Validate("Qty. (Phys. Inventory)", pdQuantity);
+
+        lrecBinContent.SetRange("Item No.", pcodItemNo);
+        lrecBinContent.SetRange("Location Code", pcodLocationCode);
+        lrecBinContent.SetRange("Variant Code", pcodVariant);
+
+        lrecLocation.Get(lrecItemJnl."Location Code");
+        if (lrecLocation."Bin Mandatory") then begin
+            if (pcodBinCode <> '') then
+                lrecBinContent.SetRange("Bin Code", pcodBinCode);
+
+            if (lrecBinContent.FindSet()) then begin
+                lrecBinContent.CalcFields(Quantity);
+                lrecItemJnl.Validate("Qty. (Calculated)", lrecBinContent.Quantity);
+            end;
+        end
+        else begin
+            lrecItem.Get(lrecItemJnl."Item No.");
+            lrecItem.SetFilter("Location Filter", lrecItemJnl."Location Code");
+            lrecItem.CalcFields("Inventory");
+            lrecItemJnl.Validate("Qty. (Calculated)", lrecItem.Inventory);
+        end;
+
+        if lrecItemJnlBatch."Reason Code" <> '' then
+            lrecItemJnl.Validate("Reason Code", lrecItemJnlBatch."Reason Code");
+
+        lrecItemJnl.Modify();
+
+        exit(lrecItemJnl."Line No.");
+    end;
+
+    procedure GetJournalTemplateName(): Code[10]
+    var
+    begin
+        exit(cuJournalFuncs.getItemJnlTemplate(PAGE::"Phys. Inventory Journal", 2));
+    end;
+
+    procedure GetGenJournalTemplateName(): Code[10]
+    var
+    begin
+        exit(cuJournalFuncs.getItemJnlTemplate(PAGE::"Item Journal", 0));
+    end;
+
+    var
+        cuCommonFuncs: Codeunit "WHI Common Functions";
+        cuDatasetTools: Codeunit "WHI Dataset Tools";
+        cuJournalFuncs: Codeunit "WHI Journal Functions";
+        cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
+        iEventID: Integer;
+        tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
+}
+

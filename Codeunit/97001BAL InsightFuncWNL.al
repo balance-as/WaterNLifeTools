@@ -127,13 +127,13 @@ codeunit 97001 "BAL InsightFunc WNL"
         WhereUsed: Record "BAL Where Used";
         lcuWHICommond: Codeunit "WHI Common Functions";
     begin
-        ItemJnlBatch.SetRange("Template Type"::Item);
+        ItemJnlBatch.SetRange("Template Type",ItemJnlBatch."Template Type"::Item);
         WhereUsed.DeleteAll;
         if ItemJnlBatch.findset Then
             repeat
                 WhereUsed.No := ItemJnlBatch.name;
                 WhereUsed.Description := ItemJnlBatch.Description;
-                WhereUsed.Insert()
+                if WhereUsed.Insert() then;
             until ItemJnlBatch.next = 0;
         lcuWHICommond.generateSuccessReturn('', pbsoutput);
     end;

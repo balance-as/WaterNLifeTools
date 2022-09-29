@@ -83,6 +83,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field RawNo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - NamedType tcWrongSeriesErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 605781948 - NamedType 71159511" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post occurred, and Printing has been queued</source>
           <note from="Developer" annotates="general" priority="2"></note>
