@@ -13,7 +13,23 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
 
     actions
     {
-        // Add changes to page actions here
+        addafter("Delete Invoiced")
+        {
+            action("Move UK Orders")
+            {
+                Caption = 'Move UK orders';
+                ApplicationArea = All;
+                Image = MoveDown;
+                trigger OnAction()
+
+                var
+                    BALFunc: codeunit "BAL Func";
+                begin
+                    BALFunc.MoveLocation(rec, 'UK', 'AMZ UK');
+                end;
+            }
+
+        }
     }
 
 }

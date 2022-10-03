@@ -15,6 +15,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Bin Ranking filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 410940989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Posting Group</source>
+          <target>Debitorbogføringsgruppe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Customer Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 1417803734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debug Mode</source>
           <target>Debug Mode</target>
@@ -57,11 +63,63 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Primary Kay - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2205104606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Method Code</source>
+          <target>Leveringskode</target>
+          <target>[NAB: SUGGESTION]Kode for leveringsform</target>
+          <target>[NAB: SUGGESTION]Kode for leveringsmetode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Shipment Method Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webshop PAyment URL</source>
           <target>Webshop betalings URL</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Webshop Payment URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 949215307 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target>Nr.</target>
+          <target>[NAB: SUGGESTION]Nej.</target>
+          <target>[NAB: SUGGESTION]Nummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target>Antal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2722806399 - Field 180543479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Raw Item No.</source>
+          <target>Komponent vare nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field RawNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 is change from %3 %4 to %5 </source>
+          <target>%1 %2 er ændret fra %3 %4 til %5</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType MessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
+          <target>Kladde %1 har en %2 angivet.\Sæt venligst %3 i stedet</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - NamedType tcWrongSeriesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 605781948 - NamedType 71159511" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post occurred, and Printing has been queued</source>
+          <target>Record oprettet, og Udskriften er blvet sat i kø</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit WMDM Extension Post and Print - NamedType tcPostAndPrint</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
@@ -95,7 +153,7 @@
         </trans-unit>
         <trans-unit id="Page 2805204955 - Action 350904577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear 2 Bin Content</source>
-          <target>slet 2 i bin content</target>
+          <target>Slet 2 i bin content</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Clear2Bincontent - Property Caption</note>
         </trans-unit>
@@ -165,11 +223,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal Phys Inventory Journal Ext - Action ClearInventory - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3639017585 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2466464261">
+        <trans-unit id="PageExtension 3639017585 - Action 488093921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2466464261">
           <source>Move-to Location</source>
           <target>Flyt-Til-Lokation</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action ClearInventory - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action Movetolocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 1204557790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Move UK orders</source>
+          <target>Flyt UK ordre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move UK Orders - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
@@ -278,6 +342,18 @@
           <target>Kørsel er stoppet!\Tilføj filter for %1!</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get GTIN no.</source>
+          <target>Hent GTIN nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get new GTIN Number from No. series</source>
+          <target>Hent ny GTIN nummer fra nr. serie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>

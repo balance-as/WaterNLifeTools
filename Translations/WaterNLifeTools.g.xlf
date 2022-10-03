@@ -83,6 +83,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field RawNo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 is change from %3 %4 to %5 </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType MessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 2435445305" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No orders to change</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType NoActionTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
@@ -182,6 +192,11 @@
           <source>Move-to Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action Movetolocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 1204557790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Move UK orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move UK Orders - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
