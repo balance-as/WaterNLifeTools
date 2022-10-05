@@ -13,6 +13,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Bin Ranking filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 931661215 - Field 1771472914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country From Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryFromLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 3539203692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 2982261901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country to Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryToLocation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 931661215 - Field 410940989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -84,7 +99,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL Where Used - Field RawNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 is change from %3 %4 to %5 </source>
+          <source>%1 %2 is change from %3 %4\to %5 </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType MessageTxt</note>
         </trans-unit>
@@ -117,6 +132,21 @@
           <source>Webshop</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 1771472914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location to change from for UK/GB</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryFromLocation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 3539203692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter field for changing location for UK/GB</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryLocation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Control 2982261901 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location to change to for UK/GB</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryToLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount</source>

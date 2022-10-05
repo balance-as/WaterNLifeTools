@@ -24,8 +24,13 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
 
                 var
                     BALFunc: codeunit "BAL Func";
+                    BalWaterNLifesetup: record "BAL WaterNlife Setup";
                 begin
-                    BALFunc.MoveLocation(rec, 'UK', 'AMZ UK');
+                    BalWaterNLifesetup.get;
+                    BalWaterNLifesetup.testfield(ContryLocation);
+                    BalWaterNLifesetup.testfield(ContryFromLocation);
+                    BalWaterNLifesetup.testfield(ContryToLocation);
+                    BALFunc.MoveLocation(rec, BalWaterNLifesetup.ContryLocation, BalWaterNLifesetup.ContryFromLocation, BalWaterNLifesetup.ContryToLocation);
                 end;
             }
 
