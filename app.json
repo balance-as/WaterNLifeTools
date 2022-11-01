@@ -32,7 +32,7 @@
   ],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "18.0.0.0",
+  "application": "21.0.0.0",
   "idRanges": [
     {
       "from": 97000,
@@ -41,6 +41,6 @@
   ],
   "contextSensitiveHelpUrl": "https://balance.as/",
   "resourceExposurePolicy": {"allowDebugging": true},
-  "runtime": "9.1",
+  "runtime": "10.0",
   "features": ["TranslationFile"]
 }
