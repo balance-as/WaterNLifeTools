@@ -9,7 +9,14 @@ tableextension 97008 "BAL WHsActivityHeader Ext" extends "Warehouse Activity Hea
             Editable = false;
             FieldClass = FlowField;
         }
-        
+        field(97100; "Sell-to Customer Name"; Text[100])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Sell-to Customer Name" where("Document Type" = const(Order), "No." = field("Source No.")));
+            Caption = 'Sell-to Customer Name';
+
+        }
+
     }
 
     var
