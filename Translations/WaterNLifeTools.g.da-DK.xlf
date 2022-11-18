@@ -125,7 +125,6 @@
           <source>%1 %2 is change from %3 %4\to %5 </source>
           <target>%1 %2 er ændret fra %3 %4\til %5</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType MessageTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 2435445305" size-unit="char" translate="yes" xml:space="preserve">
@@ -168,21 +167,18 @@
           <source>Location to change to for UK/GB</source>
           <target>Lokation ændres TIL for UK/GB</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryFromLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 3539203692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Filter field for changing location for UK/GB</source>
           <target>Filter for land til ædnring af lokatin for UK/GB</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 2982261901 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location to change to for UK/GB</source>
           <target>Lokation Ændres til for UK/GB</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryToLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -365,6 +361,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field BAL Shipment ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 869153732 - Field 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Sell-to Customer Name</source>
+          <target>Kundenavn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field Sell-to Customer Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3591542144 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2624270058">
           <source>GTIN</source>
           <target>GTIN</target>
@@ -391,16 +393,14 @@
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Get GTIN no.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Hent GTIN nr</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Get new GTIN Number from No. series</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Hent nyt GTIN nummer fra nr-serie</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
         </trans-unit>
       </group>
