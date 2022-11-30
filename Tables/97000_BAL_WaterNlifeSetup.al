@@ -71,19 +71,16 @@ table 97000 "BAL WaterNlife Setup"
         field(30; ContryLocation; Code[10])
         {
             DataClassification = ToBeClassified;
-            caption = 'Country Location';
             TableRelation = "Country/Region";
         }
         field(31; ContryToLocation; Code[10])
         {
             DataClassification = ToBeClassified;
-            caption = 'Country to Location';
             TableRelation = Location;
         }
         field(32; ContryFromLocation; Code[10])
         {
             DataClassification = ToBeClassified;
-            caption = 'Country From Location';
             TableRelation = Location;
         }
 

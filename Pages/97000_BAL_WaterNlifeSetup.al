@@ -36,24 +36,6 @@ page 97000 "BAL WaterNlife Setup Card"
                     ApplicationArea = All;
                     ToolTip = '%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount';
                 }
-                field(ContryLocation;rec.ContryLocation)
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Filter field for changing location for UK/GB';
-
-                }
-                field(ContryFromLocation;rec.ContryFromLocation)
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Location to change from for UK/GB';
-
-                }field(ContryToLocation;rec.ContryToLocation)
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Location to change to for UK/GB';
-
-                }
-            
             }
             group(GTIN)
             {

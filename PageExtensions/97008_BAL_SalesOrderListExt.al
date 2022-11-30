@@ -15,9 +15,10 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
     {
         addafter("Delete Invoiced")
         {
-            action("Move UK Orders")
+            action("Move Amazon Orders")
             {
-                Caption = 'Move UK orders';
+                Caption = 'Move Amazon Orders';
+                ToolTip = 'This function is used to change "Shipment Location" according to setup in Country/Region table';
                 ApplicationArea = All;
                 Image = MoveDown;
                 trigger OnAction()
@@ -26,11 +27,7 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
                     BALFunc: codeunit "BAL Func";
                     BalWaterNLifesetup: record "BAL WaterNlife Setup";
                 begin
-                    BalWaterNLifesetup.get;
-                    BalWaterNLifesetup.testfield(ContryLocation);
-                    BalWaterNLifesetup.testfield(ContryFromLocation);
-                    BalWaterNLifesetup.testfield(ContryToLocation);
-                    BALFunc.MoveLocation(rec, BalWaterNLifesetup.ContryLocation, BalWaterNLifesetup.ContryFromLocation, BalWaterNLifesetup.ContryToLocation);
+                    BALFunc.MoveLocation();
                 end;
             }
 

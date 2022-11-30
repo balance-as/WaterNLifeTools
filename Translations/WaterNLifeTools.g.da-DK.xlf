@@ -16,9 +16,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Bin Ranking filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 1771472914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Country From Location</source>
-          <target>Lande fra Lokation</target>
+          <source>ContryFromLocation</source>
+          <target>[NAB: REVIEW]Lande fra Lokation</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryFromLocation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 3539203692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -28,9 +29,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryLocation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2982261901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Country to Location</source>
-          <target>Land til Lokation</target>
+          <source>ContryToLocation</source>
+          <target>[NAB: REVIEW]Land til Lokation</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field ContryToLocation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 410940989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -127,11 +129,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType MessageTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 2435445305" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No orders to change</source>
-          <target>Der er ingen ordre at ændre!</target>
+        <trans-unit id="Codeunit 4198103595 - Method 4122925296 - NamedType 2922399438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no %1 with %2 %3 assignment</source>
+          <target>Der er ingen %1 med %2 og %3 udfyldt</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType NoActionTxt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType FailTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
@@ -162,24 +164,6 @@
           <target>Webshop</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control Webshop - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2805204955 - Control 1771472914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Location to change to for UK/GB</source>
-          <target>Lokation ændres TIL for UK/GB</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryFromLocation - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2805204955 - Control 3539203692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter field for changing location for UK/GB</source>
-          <target>Filter for land til ædnring af lokatin for UK/GB</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryLocation - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2805204955 - Control 2982261901 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Location to change to for UK/GB</source>
-          <target>Lokation Ændres til for UK/GB</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Control ContryToLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Control 2108794423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 = Weborder No., %2 = Sales Order No., %3 = Currency Code, %4 = Amount</source>
@@ -271,17 +255,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action Movetolocation - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 28985575 - Action 1204557790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
-          <source>Move UK orders</source>
-          <target>Flyt UK ordre</target>
+        <trans-unit id="PageExtension 28985575 - Action 1304118534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Move Amazon Orders</source>
+          <target>Flyt Amazon Ordrer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move UK Orders - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move Amazon Orders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 910320485 - Control 1771472914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 105737358">
+          <source>Location to change Amazon - Sales Order Location to</source>
+          <target>Lokation hvor Amazon ordrer flyttes til</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL_CountryList Ext - Control ContryFromLocation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 910320485 - Control 2982261901 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 105737358">
+          <source>Location to change Amazon - Sales Order Location from</source>
+          <target>Lokation hvor Amazon ordrer flyttes fra</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL_CountryList Ext - Control ContryToLocation - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
           <target>GTIN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Bin Content Ext - Field BAL GTIN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2555527906 - Field 2020085182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
+          <source>Move From Location</source>
+          <target>Flyt fra lokation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Country Ext - Field MoveFromLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2555527906 - Field 2650431649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
+          <source>Move to Location</source>
+          <target>Flyt til lokation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Country Ext - Field MoveToLocation - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 471269725 - Field 1353114017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Qty. on Blanket Order</source>
@@ -393,15 +401,21 @@
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Get GTIN no.</source>
-          <target>Hent GTIN nr</target>
+          <target>Hent GTIN nummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Get new GTIN Number from No. series</source>
-          <target>Hent nyt GTIN nummer fra nr-serie</target>
+          <target>Hent nyt GTIN nr. fra nummerserie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 1304118534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>This function is used to change "Shipment Location" according to setup in Country/Region table</source>
+          <target>Denne funktion vil ændre leverings lokationen i henhold til opsætning i Lande/Region tabellen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move Amazon Orders - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>
