@@ -26,8 +26,10 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
                 var
                     BALFunc: codeunit "BAL Func";
                     BalWaterNLifesetup: record "BAL WaterNlife Setup";
+                    SalesHeader: Record "Sales Header";
                 begin
-                    BALFunc.MoveLocation();
+                    CurrPage.SETSELECTIONFILTER(SalesHeader);
+                    BALFunc.MoveLocation(salesheader);
                 end;
             }
 

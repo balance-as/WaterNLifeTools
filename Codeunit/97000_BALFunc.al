@@ -19,11 +19,10 @@ codeunit 97000 "BAL Func"
     end;
 
 
-    procedure MoveLocation()
+    procedure MoveLocation(var SalesHeader: record "Sales Header")
     var
         CountryRegion: Record "Country/Region";
         location: Record Location;
-        SalesHeader: record "Sales Header";
         SalesLine: Record "Sales Line";
         i: integer;
         MessageTxt: label '%1 %2 is change from %3 %4\to %5 ';
