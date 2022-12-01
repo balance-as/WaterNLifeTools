@@ -228,6 +228,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL_CountryList Ext - Control ContryToLocation - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 910320485 - Control 4045368290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 105737358">
+          <source>Change Shipping agent at sales order when changinge Location code\If empty, then no change at Sales Header</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL_CountryList Ext - Control Shipping Agent Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -242,6 +247,11 @@
           <source>Move to Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Country Ext - Field MoveToLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2555527906 - Field 4045368290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
+          <source>Shipping Agent Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Country Ext - Field Shipping Agent Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 471269725 - Field 1353114017 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Qty. on Blanket Order</source>

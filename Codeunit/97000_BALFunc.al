@@ -44,6 +44,8 @@ codeunit 97000 "BAL Func"
                         SalesHeader2 := SalesHeader;
                         SalesHeader.Status := SalesHeader.Status::Open;
                         SalesHeader.validate("Location Code", CountryRegion.MoveToLocation);
+                        if CountryRegion."Shipping Agent Code" <> '' then
+                            SalesHeader.validate("Shipping Agent Code", CountryRegion."Shipping Agent Code");
                         SalesLine.setrange("Document Type", SalesHeader."Document Type");
                         SalesLine.setrange("Document No.", SalesHeader."No.");
                         SalesLine.SetRange(type, SalesLine.type::Item);
