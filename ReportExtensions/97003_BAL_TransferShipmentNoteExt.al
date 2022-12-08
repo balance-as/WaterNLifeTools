@@ -35,5 +35,5 @@ reportextension 97003 "BAL Transfer Shipment Ext" extends "Transfer Shipment"
         }
     }
     var
-        Item: Record Item;
+        Item: Record Item;     
 }
