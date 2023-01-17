@@ -1,4 +1,4 @@
-tableextension 97001 "BAL Bin Content Ext" extends "Bin Content"
+tableextension 97001 "BAL Bin Content Exta" extends "Bin Content"
 {
     fields
     {

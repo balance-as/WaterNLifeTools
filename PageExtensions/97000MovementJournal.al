@@ -1,4 +1,4 @@
-pageextension 97000 "BAL Movement worksheet Ext" extends "Movement Worksheet"
+pageextension 97000 "BAL Movement worksheet Exta" extends "Movement Worksheet"
 {
     layout
     {

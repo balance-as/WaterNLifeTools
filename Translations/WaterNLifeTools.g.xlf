@@ -108,6 +108,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType FailTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 3602853947 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 is changed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method SetExcludeFromMovement - NamedType MessageTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
@@ -188,15 +193,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action ItemLabel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
+        <trans-unit id="PageExtension 877846630 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>Just testing</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Exta - Action BAL Delete ws - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3148810797 - Action 4208914614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
+        <trans-unit id="PageExtension 877846630 - Action 4208914614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>delete worksheet</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Ext - Action BAL Delete ws - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Movement worksheet Exta - Action BAL Delete ws - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3037849121 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Clear Inventory registrered</source>
@@ -208,6 +213,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bal ReclassJnl Ext - Action Movetolocation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2777263697 - Action 1304118534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>This function is used to change "Shipment Location" according to setup in Country/Region table</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Move Amazon Orders - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2777263697 - Action 1304118534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Move Amazon Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Move Amazon Orders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2777263697 - Action 1205948582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>This function is used to change valud for "Exclude from movement"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Set Exclude From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2777263697 - Action 1205948582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Set exclude from Movement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Set Exclude From - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 28985575 - Action 1304118534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>This function is used to change "Shipment Location" according to setup in Country/Region table</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -217,6 +242,26 @@
           <source>Move Amazon Orders</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move Amazon Orders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 1205948582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>This function is used to change value for "Exclude from movement"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Set Exclude From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 1205948582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Set exclude from Movement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Set Exclude From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 3807491769 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>This function is used to change value for "Exclude from movement"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Set not Exclude From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 3807491769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Set include from Movement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Set not Exclude From - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 910320485 - Control 1771472914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 105737358">
           <source>Location to change Amazon - Sales Order Location to</source>
@@ -233,10 +278,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL_CountryList Ext - Control Shipping Agent Code - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1009181646 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
+        <trans-unit id="TableExtension 3486535261 - Field 2741780917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1692605088">
           <source>GTIN</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Bin Content Ext - Field BAL GTIN - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Bin Content Exta - Field BAL GTIN - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2555527906 - Field 2020085182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
           <source>Move From Location</source>

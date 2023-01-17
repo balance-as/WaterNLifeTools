@@ -71,4 +71,39 @@ codeunit 97000 "BAL Func"
 
     end;
 
+    procedure SetExcludeFromMovement(var SalesHeader: record "Sales Header";SetTrue:boolean)
+    var
+        SalesLine: Record "Sales Line";
+        i: integer;
+        MessageTxt: label '%1 %2 is changed';
+
+        SalesHeader2: Record "Sales Header";
+    begin
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        if SalesHeader.findset then begin
+            salesheader.SetHideValidationDialog(true);
+            repeat
+                SalesHeader2 := SalesHeader;
+                SalesHeader.Status := SalesHeader.Status::Open;
+                SalesHeader."BAL Exclude Movement" := SetTrue;
+
+                SalesLine.setrange("Document Type", SalesHeader."Document Type");
+                SalesLine.setrange("Document No.", SalesHeader."No.");
+                SalesLine.SetRange(type, SalesLine.type::Item);
+                SalesLine.setfilter("No.", '<>%1', '');
+                if SalesLine.FindSet() then
+                    repeat
+                        SalesLine.SetHideValidationDialog(true);
+                        SalesLine.SetSalesHeader(SalesHeader);
+                        SalesLine.Validate("BAL Exclude Movement", SetTrue);
+                        SalesLine.modify;
+                    until salesline.next = 0;
+                i += 1;
+                SalesHeader.Status := SalesHeader2.Status;
+                salesheader.modify;
+            until salesheader.next = 0;
+            Message(MessageTxt, i, SalesHeader.TableCaption);
+        end;
+    end;
+
 }

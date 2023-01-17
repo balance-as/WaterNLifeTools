@@ -2,7 +2,7 @@
   "id": "4be6ce7e-8227-44c8-8c9b-367d1a5a2a8a",
   "name": "WaterNLifeTools",
   "publisher": "Aktieselskabet balance.as",
-  "version": "1.0.0.74",
+  "version": "1.0.0.75",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -28,7 +28,12 @@
     {"id": "96da1317-c2e8-42ec-aa19-216e33d0da19",
     "name": "Scaptify",
     "version": "19.8.17.0",
-    "publisher": "Scapta"}
+    "publisher": "Scapta"},
+    {"id": "5680b631-d95b-42b0-84fb-9c9fed4e8ad5",
+    "name": "WareHouseTools",
+    "version": "1.0.0.69",
+    "publisher": "Aktieselskabet balance.as"}
+ 
   ],
   "screenshots": [],
   "platform": "1.0.0.0",

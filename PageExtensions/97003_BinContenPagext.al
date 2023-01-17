@@ -1,4 +1,4 @@
-pageextension 97003 "BAL Bin Content Ext" extends "Bin Contents"
+pageextension 97003 "BAL Bin Content Exta" extends "Bin Contents"
 {
     layout
     {
