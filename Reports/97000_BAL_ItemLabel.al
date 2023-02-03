@@ -137,6 +137,15 @@ report 97000 "BAL WaterNLife Item Label"
 
         end;
     }
+    trigger OnPreReport()
+    begin
+        if not GuiAllowed() then begin
+            // get quantity from receiving
+            NoOfLabels := cuSessionHelper.GetValueAsInt('label_numcopies');
+            if NoOfLabels < 1 then
+                NoOfLabels := 1;
+        end;
+    end;
     local procedure GetAttributValue(No: Code[20]; AttributID: Integer): Text
     begin
         if AttributeValueMapping.get(database::Item, No, AttributID) then
@@ -165,5 +174,6 @@ report 97000 "BAL WaterNLife Item Label"
         AttributeValueMapping: Record "Item Attribute Value Mapping";
         PurchOrderNo: Code[20];
         PackageQty: Text[30];
+        cuSessionHelper: Codeunit "WHI Session Helper";
 
 }
