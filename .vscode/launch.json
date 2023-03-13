@@ -7,7 +7,7 @@
             "type": "al",
             "server": "https://businesscentral.dynamics.com/39d558ed-d676-4dfd-9d1c-7110bb396a03",
             "environmentType": "Sandbox",
-            "environmentName": "SandboxV21",
+            "environmentName": "SandboxFeb2023",
             "startupObjectId": 31,
             "startupObjectType": "Page",
             "breakOnError": true,
