@@ -123,6 +123,186 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit WMDM Extension Post and Print - NamedType tcPostAndPrint</note>
         </trans-unit>
+        <trans-unit id="Page 2163867583 - Action 978585800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>delete record</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL delete Entity - Action Delete record - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warehouse Entries balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2814799924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bin where the items are picked or put away.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Bin Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3309616201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total cubage of the items on the warehouse entry line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Cubage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the warehouse entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the entry, as assigned from the specified number series when the entry was created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 149522872 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry type, which can be Negative Adjmt., Positive Adjmt., or Movement.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Entry Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1579714849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the expiration date of the serial number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the item in the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2704330142 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the journal batch, a personalized journal layout, that the entries were posted from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Journal Batch Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3684440170 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the journal template, the basis of the journal batch, that the entries were posted from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Journal Template Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number of the warehouse document line or warehouse journal line that was registered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the location to which the entry is linked.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1482668068 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the lot number assigned to the warehouse entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Lot No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1351594800 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number series from which entry or record numbers are assigned to new entries or records.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control No. Series - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 4240543679 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the package number assigned to the warehouse entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Package No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1584437498 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity of the entry, in the base unit of measure.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Qty. (Base) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 806193894 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of base units of measure that are in the unit of measure specified for the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Qty. per Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units of the item in the warehouse entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1908046867 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reason code, a supplementary source code that enables you to trace the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3678395431 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date the entry was registered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Registering Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 47037625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the serial number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Serial No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1045917230 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of document that the line relates to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 312545736 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number of the source document that the entry originates from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1882905478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the source document that the entry originates from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1043593140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the source subline number of the document from which the entry originates.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Subline No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 205345179 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the source subtype of the document to which the warehouse entry line relates.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Subtype - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1753214751 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the table number that is the source of the entry line, for example, 39 for a purchase line, 37 for a sales line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours. By default, the value in the Base Unit of Measure field on the item or resource card is inserted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2708250016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control User ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the variant of the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2854289444 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the weight of one item unit when measured in the specified unit of measure.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1483846801 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the warehouse document from which this entry originated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Whse. Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2071670972 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the document from which this entry originated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Whse. Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 16017469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the zone to which the entry is linked.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Zone Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Action 978585800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>delete record</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Action Delete record - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
