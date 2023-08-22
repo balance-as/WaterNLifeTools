@@ -39,6 +39,8 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 createJournalLine(ptrecEventParams, pbsOutput);
             2000114:
                 deleteJournalLine(ptrecEventParams, pbsOutput);
+            2000115:
+                ReturnBachnamefromUserId(ptrecEventParams, pbsOutput);
         end;
     end;
 
@@ -301,6 +303,83 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         exit(cuJournalFuncs.getItemJnlTemplate(PAGE::"Item Journal", 0));
     end;
 
+    procedure GetJournalTemplateName(): Code[10]
+    var
+    begin
+        exit(cuJournalFuncs.getItemJnlTemplate(PAGE::"Phys. Inventory Journal", 2));
+    end;
+
+    procedure RemoveUserDomain(pcodUserNameWithDomain: Code[100]): Code[100]
+
+    var
+        liCheckDelimiter: Integer;
+    begin
+        liCheckDelimiter := StrPos(pcodUserNameWithDomain, '\');
+        if (liCheckDelimiter > 0) then
+            exit(CopyStr(pcodUserNameWithDomain, liCheckDelimiter + 1, 100));
+
+        exit(pcodUserNameWithDomain);
+    end;
+
+    local procedure ReturnBachnamefromUserId(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJnlBatch: Record "Item Journal Batch";
+        lrecItemJnlLine: Record "Item Journal Line";
+        lrecLocation: Record Location;
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lcodBatchName: Code[20];
+        cuJournalFunc: Codeunit "WHI Journal Functions";
+        lcodUserName: Code[100];
+        lcodReclassBatch: Code[10];
+        lcodTemplateName: Code[10];
+    begin
+        //  lcodBatchName := CopyStr(ptrecEventParams.GetExtendedValue('Name'), 1, MaxStrLen(lcodBatchName));
+        lcodUserName := RemoveUserDomain(CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, 100));
+        lcodTemplateName := cuJournalFunc.getItemJnlTemplate(PAGE::"Item Reclass. Journal", 1);
+        lcodReclassBatch := cuJournalFunc.getItemJnlReclassBatchToUse(ptrecEventParams);
+        lcodBatchName := lcodReclassBatch;
+        ptrecEventParams.getLocation(lrecLocation);
+
+        lrecItemJnlBatch.Get(GetJournalTemplateName(), lcodBatchName);
+
+        if lrecItemJnlBatch."No. Series" <> '' then
+            Error(tcWrongSeriesErr,
+                  lcodBatchName,
+                  lrecItemJnlBatch.FieldCaption("No. Series"),
+                  lrecItemJnlBatch.FieldCaption("Posting No. Series"));
+
+        lrecItemJnlBatch.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
+        lrecItemJnlBatch.SetRange(Name, lcodBatchName);
+        if lrecItemJnlBatch.FindSet() then;
+
+        lrecItemJnlLine.Reset();
+        lrecItemJnlLine.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
+        lrecItemJnlLine.SetRange("Journal Batch Name", lcodBatchName);
+        lrecItemJnlLine.SetRange("Location Code", lrecLocation.Code);
+        if lrecItemJnlLine.FindSet() then;
+
+        lrrefHeader.GetTable(lrecItemJnlBatch);
+        lrrefLine.GetTable(lrecItemJnlLine);
+
+        lbNeedsItemTrackingTable := ptrecEventParams.getNeedsItemTrackingTable();
+
+        cuDatasetTools.BuildHeaderLineDataset(
+          iEventID,
+          lrrefHeader,
+          lrrefLine,
+          lbNeedsItemTrackingTable,
+          ldnOutput);
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lcodBatchName);
+        ptrecEventParams.setValue('Name', lcodBatchName);
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
     var
         cuCommonFuncs: Codeunit "WHI Common Functions";
         cuDatasetTools: Codeunit "WHI Dataset Tools";
@@ -308,5 +387,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         iEventID: Integer;
         tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
+        cu2344921: codeunit 23044921;
+        cu23044924: Codeunit 23044924;
 }
 
