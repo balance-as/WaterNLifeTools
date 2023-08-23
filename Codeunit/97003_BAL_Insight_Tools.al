@@ -41,6 +41,10 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 deleteJournalLine(ptrecEventParams, pbsOutput);
             2000115:
                 ReturnBachnamefromUserId(ptrecEventParams, pbsOutput);
+            200116:
+                updateInvJournalLine(ptrecEventParams, pbsOutput);
+            200117:
+                BALAddItemTrackingInventory(ptrecEventParams, pbsOutput);
         end;
     end;
 
@@ -376,8 +380,112 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
 
         ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
         ptrecEventParams.setValue('Document No.', lcodBatchName);
-        ptrecEventParams.setValue('Name', lcodBatchName);
+        //ptrecEventParams.setValue('Name', lcodBatchName);
         cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    local procedure getSpecificInvLine(var ptrecEventParams: Record "IWX Event Param" temporary; var precOutPhysJournalLine: Record "Item Journal Line") pbSuccess: Boolean
+    var
+        lcodJournalTemplateName: Code[10];
+        lcodJournalBatchName: Code[10];
+        cuJournalFunc: Codeunit "WHI Journal Functions";
+        lcodUserName: Code[100];
+        lcodReclassBatch: Code[10];
+        lcodTemplateName: Code[10];
+    begin
+        lcodJournalTemplateName := GetJournalTemplateName();
+        //lcodJournalBatchName := CopyStr(ptrecEventParams.GetExtendedValue('Name'), 1, MaxStrLen(lcodJournalBatchName));
+        lcodUserName := RemoveUserDomain(CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, 100));
+        lcodTemplateName := cuJournalFunc.getItemJnlTemplate(PAGE::"Item Reclass. Journal", 1);
+        lcodReclassBatch := cuJournalFunc.getItemJnlReclassBatchToUse(ptrecEventParams);
+        lcodJournalBatchName := lcodReclassBatch;
+
+        if (lcodJournalBatchName = '') then
+            lcodJournalBatchName := cuJournalFuncs.getItemJnlPhysInvBatchToUse(ptrecEventParams);
+        pbSuccess := precOutPhysJournalLine.Get(lcodJournalTemplateName, lcodJournalBatchName, ptrecEventParams.getValueAsInt('Line No.'));
+    end;
+
+    local procedure updateInvJournalLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecItemJournalLine: Record "Item Journal Line";
+        lrrefUpdatedLine: RecordRef;
+        ldQuantity: Decimal;
+        ldnOutput: TextBuilder;
+        ldPreviousQuantity: Decimal;
+    begin
+        ldQuantity := ptrecEventParams.getValueAsDecimal('quantity');
+        getSpecificInvLine(ptrecEventParams, lrecItemJournalLine);
+        ldPreviousQuantity := lrecItemJournalLine."Qty. (Phys. Inventory)";
+        lrecItemJournalLine.Validate("Qty. (Phys. Inventory)", ldQuantity);
+
+        lrecItemJournalLine.Modify();
+        lrecItemJournalLine.SetRecFilter();
+        lrrefUpdatedLine.GetTable(lrecItemJournalLine);
+        cuDatasetTools.BuildLineTableEmbedRes(97001, lrrefUpdatedLine, false, ldnOutput);
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lrecItemJournalLine."Journal Batch Name");
+        ptrecEventParams.setValue('Line No.', Format(lrecItemJournalLine."Line No."));
+        ptrecEventParams.setValue('Previous Quantity', Format(ldPreviousQuantity));
+        ptrecEventParams.setValue('New Quantity', Format(ldQuantity));
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    procedure BALAddItemTrackingInventory(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        Location: record Location;
+        Bin: Record Bin;
+        ItemNo: code[20];
+        Item: record Item;
+        Item2: Record Item;
+        TempReservationEntry: record "Reservation Entry";
+        //        KMESetup: record "BAL Kaffe Mekka Setup";
+        LotNo: Code[20];
+        lcuWHICommond: Codeunit "WHI Common Functions";
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //  BALInsightFunc: Codeunit "BAL InsightFunc";
+        ItemJnLine: Record "Item Journal Line";
+        Status: Enum "Reservation Status";
+        WHIBasicCountMgmt: Codeunit 23044924;
+        TemplateName: code[10];
+        cuJournalFunc: Codeunit "WHI Journal Functions";
+        lcodUserName: Code[100];
+        lcodReclassBatch: Code[10];
+        lcodTemplateName: Code[10];
+    begin
+        lcodUserName := RemoveUserDomain(CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, 100));
+        lcodTemplateName := cuJournalFunc.getItemJnlTemplate(PAGE::"Item Reclass. Journal", 1);
+        lcodReclassBatch := cuJournalFunc.getItemJnlReclassBatchToUse(ptrecEventParams);
+        error(lcodReclassBatch);
+        ptrecEventParams.setValue('Name', lcodReclassBatch);
+        WHIBasicCountMgmt.executeEvent(97003, ptrecEventParams, pbsoutput);
+
+        location.get(ptrecEventParams.getValue('location'));
+        itemno := ptrecEventParams.getValue('item_number');
+        LotNo := ptrecEventParams.getValue('lot_number');
+        //ItemJnLine.SetRange("Journal Template Name", ptrecEventParams.getValue('Journal Template Name'));
+        ItemJnLine.setrange("Phys. Inventory", true);
+        //ItemJnLine.setrange("Journal Batch Name", ptrecEventParams.getValue('name'));
+
+        ItemJnLine.setrange("Item No.", ItemNo);
+
+        ItemJnLine.FindSet;
+        if not ItemJnLine.FindSet then
+            exit;
+
+        if strpos(LotNo, '%LN%') > 0 then
+            LotNo := copystr(LotNo, 5);
+        TempReservationEntry."Lot No." := LotNo;
+        TempReservationEntry."Reservation Status" := TempReservationEntry."Reservation Status"::Prospect;
+        item.get(ItemNo);
+        if Item.get(ItemJnLine."Item No.") and (format(Item."Expiration Calculation") <> '') then
+            CreateReservEntry.SetDates(0D, calcdate(Item."Expiration Calculation", WorkDate()))
+        else
+            CreateReservEntry.SetDates(0D, 0D);
+        CreateReservEntry.CreateReservEntryFor(DATABASE::"Item Journal Line", 2, ItemJnLine."Journal Template Name", ItemJnLine."Journal Batch Name", 0, ItemJnLine."Line No.", ItemJnLine."Qty. per Unit of Measure", ItemJnLine.Quantity, ItemJnLine."Quantity (Base)", TempReservationEntry);
+        CreateReservEntry.CreateEntry(ItemJnLine."Item No.", ItemJnLine."Variant Code", ItemJnLine."Location Code", ItemJnLine.Description, ItemJnLine."Posting Date", ItemJnLine."Posting Date", 0, Status::Prospect);
     end;
 
     var

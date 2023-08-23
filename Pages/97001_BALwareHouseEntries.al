@@ -260,7 +260,6 @@ page 97001 "BAL Warehouse Entries"
     local procedure SetPackageTrackingVisibility()
     var
         PackageMgt: Codeunit "Package Management";
-        page5740: Page 5470;
     begin
         PackageTrackingVisible := PackageMgt.IsEnabled();
     end;
