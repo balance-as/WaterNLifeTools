@@ -41,9 +41,9 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 deleteJournalLine(ptrecEventParams, pbsOutput);
             2000115:
                 ReturnBachnamefromUserId(ptrecEventParams, pbsOutput);
-            200116:
+            2000116:
                 updateInvJournalLine(ptrecEventParams, pbsOutput);
-            200117:
+            2000117:
                 BALAddItemTrackingInventory(ptrecEventParams, pbsOutput);
         end;
     end;
@@ -346,30 +346,23 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lcodReclassBatch := cuJournalFunc.getItemJnlReclassBatchToUse(ptrecEventParams);
         lcodBatchName := lcodReclassBatch;
         ptrecEventParams.getLocation(lrecLocation);
-
         lrecItemJnlBatch.Get(GetJournalTemplateName(), lcodBatchName);
-
         if lrecItemJnlBatch."No. Series" <> '' then
             Error(tcWrongSeriesErr,
                   lcodBatchName,
                   lrecItemJnlBatch.FieldCaption("No. Series"),
                   lrecItemJnlBatch.FieldCaption("Posting No. Series"));
-
         lrecItemJnlBatch.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
         lrecItemJnlBatch.SetRange(Name, lcodBatchName);
         if lrecItemJnlBatch.FindSet() then;
-
         lrecItemJnlLine.Reset();
         lrecItemJnlLine.SetRange("Journal Template Name", lrecItemJnlBatch."Journal Template Name");
         lrecItemJnlLine.SetRange("Journal Batch Name", lcodBatchName);
         lrecItemJnlLine.SetRange("Location Code", lrecLocation.Code);
         if lrecItemJnlLine.FindSet() then;
-
         lrrefHeader.GetTable(lrecItemJnlBatch);
         lrrefLine.GetTable(lrecItemJnlLine);
-
         lbNeedsItemTrackingTable := ptrecEventParams.getNeedsItemTrackingTable();
-
         cuDatasetTools.BuildHeaderLineDataset(
           iEventID,
           lrrefHeader,
@@ -377,10 +370,9 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
           lbNeedsItemTrackingTable,
           ldnOutput);
         pbsOutput.AddText(ldnOutput.ToText());
-
         ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
         ptrecEventParams.setValue('Document No.', lcodBatchName);
-        //ptrecEventParams.setValue('Name', lcodBatchName);
+        ptrecEventParams.setValue('Name', lcodBatchName + 'BB');
         cuActivityLogMgt.logActivity(ptrecEventParams);
     end;
 
@@ -440,7 +432,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         Item: record Item;
         Item2: Record Item;
         TempReservationEntry: record "Reservation Entry";
-        //        KMESetup: record "BAL Kaffe Mekka Setup";
+
         LotNo: Code[20];
         lcuWHICommond: Codeunit "WHI Common Functions";
         CreateReservEntry: Codeunit "Create Reserv. Entry";
@@ -458,23 +450,16 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lcodUserName := RemoveUserDomain(CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, 100));
         lcodTemplateName := cuJournalFunc.getItemJnlTemplate(PAGE::"Item Reclass. Journal", 1);
         lcodReclassBatch := cuJournalFunc.getItemJnlReclassBatchToUse(ptrecEventParams);
-        error(lcodReclassBatch);
         ptrecEventParams.setValue('Name', lcodReclassBatch);
         WHIBasicCountMgmt.executeEvent(97003, ptrecEventParams, pbsoutput);
-
         location.get(ptrecEventParams.getValue('location'));
         itemno := ptrecEventParams.getValue('item_number');
         LotNo := ptrecEventParams.getValue('lot_number');
-        //ItemJnLine.SetRange("Journal Template Name", ptrecEventParams.getValue('Journal Template Name'));
         ItemJnLine.setrange("Phys. Inventory", true);
-        //ItemJnLine.setrange("Journal Batch Name", ptrecEventParams.getValue('name'));
-
         ItemJnLine.setrange("Item No.", ItemNo);
-
         ItemJnLine.FindSet;
         if not ItemJnLine.FindSet then
             exit;
-
         if strpos(LotNo, '%LN%') > 0 then
             LotNo := copystr(LotNo, 5);
         TempReservationEntry."Lot No." := LotNo;
@@ -495,7 +480,5 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         iEventID: Integer;
         tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
-        cu2344921: codeunit 23044921;
-        cu23044924: Codeunit 23044924;
 }
 

@@ -100,6 +100,7 @@ codeunit 97001 "BAL InsightFunc WNL"
     begin
         ItemJnLine.SETRANGE("Journal Template Name", ptrecEventParams.getValue('Journal Template Name'));
         ItemJnLine.SETRANGE("Journal Batch Name", ptrecEventParams.getValue('Name'));
+        ItemJnLine.SetFilter("Item No.", '<>%1', '');
         IF ItemJnLine.FINDLAST THEN
             ItemJnlPostBatch.RUN(ItemJnLine);
         LcuWHICommond.generateSuccessReturn('Posted', PBSOutPut);
@@ -127,7 +128,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         WhereUsed: Record "BAL Where Used";
         lcuWHICommond: Codeunit "WHI Common Functions";
     begin
-        ItemJnlBatch.SetRange("Template Type",ItemJnlBatch."Template Type"::Item);
+        ItemJnlBatch.SetRange("Template Type", ItemJnlBatch."Template Type"::Item);
         WhereUsed.DeleteAll;
         if ItemJnlBatch.findset Then
             repeat
