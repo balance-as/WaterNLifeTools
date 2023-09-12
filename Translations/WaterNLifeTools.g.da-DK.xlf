@@ -139,12 +139,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method SetExcludeFromMovement - NamedType MessageTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4198103595 - Method 3602853947 - NamedType 2922399438" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There is no %1 with %2 %3 assignment</source>
-          <target>Der er ingen %1 med %2 og %3 udfyldt</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method SetExcludeFromMovement - NamedType FailTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 4221973391 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
           <target>Kladde %1 har en %2 angivet.\Sæt venligst %3 i stedet</target>
@@ -156,6 +150,222 @@
           <target>Record oprettet, og Udskriften er blvet sat i kø</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit WMDM Extension Post and Print - NamedType tcPostAndPrint</note>
+        </trans-unit>
+        <trans-unit id="Page 2163867583 - Action 978585800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>delete record</source>
+          <target>Slet Entity</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL delete Entity - Action Delete record - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warehouse Entries balance</source>
+          <target>Lager Poster</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2814799924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bin where the items are picked or put away.</source>
+          <target>Angiver den placering, hvor varerne plukkes eller lægges på lager.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Bin Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3309616201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total cubage of the items on the warehouse entry line.</source>
+          <target>Angiver det samlede rummål for varerne på lagerpostlinjen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Cubage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the warehouse entry.</source>
+          <target>Angiver en beskrivelse af lagerposten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the entry, as assigned from the specified number series when the entry was created.</source>
+          <target>Angiver nummeret på posten, som tildeles fra den angivne nummerserie, da posten blev oprettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 149522872 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry type, which can be Negative Adjmt., Positive Adjmt., or Movement.</source>
+          <target>Angiver posttypen, som kan være Nedregulering, Opregulering eller Bevægelse.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Entry Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1579714849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the expiration date of the serial number.</source>
+          <target>Angiver udløbsdatoen for serienummeret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 568743302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the item in the entry.</source>
+          <target>Angiver nummeret på varen i posten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2704330142 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the journal batch, a personalized journal layout, that the entries were posted from.</source>
+          <target>Angiver navnet på den kladdekørsel, et personligt kladdelayout, som posterne blev bogført fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Journal Batch Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3684440170 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the journal template, the basis of the journal batch, that the entries were posted from.</source>
+          <target>Angiver navnet på kladdetypen – grundlaget for den kladdekørsel, som posterne blev bogført fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Journal Template Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number of the warehouse document line or warehouse journal line that was registered.</source>
+          <target>Angiver nummeret på den lagerdokumentlinje eller lagerkladdelinje, der blev registreret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the location to which the entry is linked.</source>
+          <target>Angiver koden for den lokation, som posten er tilknyttet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1482668068 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the lot number assigned to the warehouse entry.</source>
+          <target>Angiver det lotnummer, der tildeles lagerposten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Lot No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1351594800 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number series from which entry or record numbers are assigned to new entries or records.</source>
+          <target>Angiver den nummerserie, som bruges til at knytte post- eller recordnumre til nye poster eller records.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control No. Series - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 4240543679 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the package number assigned to the warehouse entry.</source>
+          <target>Angiver det pakkenummer, der tildeles lagerstedposten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Package No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1584437498 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity of the entry, in the base unit of measure.</source>
+          <target>Angiver antallet for posten anført i basisenheder.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Qty. (Base) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 806193894 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of base units of measure that are in the unit of measure specified for the item on the line.</source>
+          <target>Angiver, hvor mange basisenheder der går på den enhed, der er angivet for varen på linjen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Qty. per Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units of the item in the warehouse entry.</source>
+          <target>Angiver antallet af vareenheder i vareposten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1908046867 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reason code, a supplementary source code that enables you to trace the entry.</source>
+          <target>Angiver årsagskoden som et supplerende kildespor, der hjælper til at spore posten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3678395431 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date the entry was registered.</source>
+          <target>Angiver den dato, hvor posten blev registreret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Registering Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 47037625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the serial number.</source>
+          <target>Angiver serienummeret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Serial No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1045917230 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of document that the line relates to.</source>
+          <target>Angiver den bilagstype, som linjen vedrører.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 312545736 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line number of the source document that the entry originates from.</source>
+          <target>Angiver linjenummeret på det kildebilag, som posten stammer fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1882905478 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the source document that the entry originates from.</source>
+          <target>Angiver nummeret på det kildebilag, som posten stammer fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1043593140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the source subline number of the document from which the entry originates.</source>
+          <target>Angiver kildeunderlinjenummeret på det bilag, som posten stammer fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Subline No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 205345179 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the source subtype of the document to which the warehouse entry line relates.</source>
+          <target>Angiver kildeundertypen for det bilag, som lagerpostlinjen vedrører.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Subtype - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1753214751 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the table number that is the source of the entry line, for example, 39 for a purchase line, 37 for a sales line.</source>
+          <target>Angiver det tabelnummer, som er kilden for posten, f.eks. 39 for en købslinje eller 37 for en salgslinje.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours. By default, the value in the Base Unit of Measure field on the item or resource card is inserted.</source>
+          <target>Angiver, hvordan hver enhed af varen eller ressourcen måles, f.eks. i enheder eller timer. Som standard indsættes værdien i feltet Basisenhed på kortet vare eller ressource.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2708250016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
+          <target>Angiver id'et for den bruger, der har bogført posten, der skal bruges, f.eks. i ændringsloggen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control User ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the variant of the item on the line.</source>
+          <target>Angiver varianten af varen på linjen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2854289444 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the weight of one item unit when measured in the specified unit of measure.</source>
+          <target>Angiver vægten af en vareenhed, når den måles i den angivne enhed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 1483846801 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the warehouse document from which this entry originated.</source>
+          <target>Angiver nummeret på det lagerdokument, som posten stammer fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Whse. Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 2071670972 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the document from which this entry originated.</source>
+          <target>Angiver typen for det bilag, som posten stammer fra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Whse. Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Control 16017469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the zone to which the entry is linked.</source>
+          <target>Angiver koden for den zone, som posten er tilknyttet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Control Zone Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3113319332 - Action 978585800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>delete record</source>
+          <target>Slet Entity</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL Warehouse Entries - Action Delete record - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>WaterNlife Setup</source>
@@ -229,17 +439,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control PurchOrderNo - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1391811513 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+        <trans-unit id="PageExtension 1391811513 - Action 3616003232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Item Label</source>
           <target>Vare Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action ItemLabel - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action BAL ItemLabel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3442673531 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+        <trans-unit id="PageExtension 3442673531 - Action 3616003232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>Item Label</source>
           <target>Vare Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action ItemLabel - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action BAL ItemLabel - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 877846630 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>Just testing</source>
