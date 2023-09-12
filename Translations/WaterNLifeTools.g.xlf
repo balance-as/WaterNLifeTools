@@ -363,15 +363,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report BAL WaterNLife Item Label - Control PurchOrderNo - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1391811513 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+        <trans-unit id="PageExtension 1391811513 - Action 3616003232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Item Label</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action ItemLabel - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Action BAL ItemLabel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3442673531 - Action 3229512621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+        <trans-unit id="PageExtension 3442673531 - Action 3616003232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>Item Label</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action ItemLabel - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action BAL ItemLabel - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 877846630 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>Just testing</source>

@@ -19,7 +19,7 @@ pageextension 97002 "BAL Item List Ext" extends "Item List"
         // Add changes to page actions here
         addfirst(reporting)
         {
-            action(ItemLabel)
+            action("BAL ItemLabel")
             {
                 Caption = 'Item Label';
                 ApplicationArea = All;

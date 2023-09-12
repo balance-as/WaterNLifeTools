@@ -41,7 +41,7 @@ pageextension 97001 "BAL Item Card Ext" extends "Item Card"
         }
         addfirst(Reporting)
         {
-            action(ItemLabel)
+            action("BAL ItemLabel")
             {
                 Caption = 'Item Label';
                 ApplicationArea = All;
