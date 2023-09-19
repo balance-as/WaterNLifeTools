@@ -135,6 +135,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
     var
         lrecItemJournalLine: Record "Item Journal Line";
         lrrefItemJournalLine: RecordRef;
+        BinContent:record "Bin Content";
         ldnOutput: TextBuilder;
         ldtPostingDate: Date;
         lcodItemNo: Code[20];
@@ -159,6 +160,13 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         ldtPostingDate := cuCommonFuncs.GetTodaysDate(ptrecEventParams);
 
         //Insert
+        if lcodBin = '' then begin
+            BinContent.setrange("Location Code",lcodLocation);
+            bincontent.setrange("Item No.",lcodItemNo);
+            bincontent.setrange(Default,true);
+            if BinContent.findset then 
+            lcodBin := BinContent."Bin Code";
+        end;
         liNewLineNumber := CreateItemJnlEntry(lcodJournalBatchNo, lcodItemNo, lcodLocation, lcodVariant, lcodBin, ldQuantity, ldtPostingDate);
 
         lrecItemJournalLine.Get(lcodJournalTemplateName, lcodJournalBatchNo, liNewLineNumber);
