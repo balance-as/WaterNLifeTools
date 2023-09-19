@@ -2,7 +2,7 @@
   "id": "4be6ce7e-8227-44c8-8c9b-367d1a5a2a8a",
   "name": "WaterNLifeTools",
   "publisher": "Aktieselskabet balance.as",
-  "version": "1.0.0.88",
+  "version": "1.0.0.89",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -32,7 +32,12 @@
     {"id": "5680b631-d95b-42b0-84fb-9c9fed4e8ad5",
     "name": "WareHouseTools",
     "version": "1.0.0.69",
-    "publisher": "Aktieselskabet balance.as"}
+    "publisher": "Aktieselskabet balance.as"},
+    {
+      "id": "70912191-3c4c-49fc-a1de-bc6ea1ac9da6",
+      "name": "Intrastat Core",
+      "version": "22.4.59114.59535",
+      "publisher": "Microsoft"}
  
   ],
   "screenshots": [],
