@@ -224,21 +224,20 @@ codeunit 97000 "BAL Func"
 
 
             "Item Ledger Document Type"::"Transfer Receipt":
-                IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
-            /*
-            begin
-                if TransferReceiptHeader.get(ItemLedgerEntry."Document No.") then begin
-            IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-from Code";
-        end;
-            end;*/
+                //IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
+                begin
+                    if TransferReceiptHeader.get(ItemLedgerEntry."Document No.") then begin
+                        IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-from Code";
+                    end;
+                end;
             "Item Ledger Document Type"::"Transfer Shipment":
-                IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
-            /*               begin
-            if TransferShipmentHeader.get(ItemLedgerEntry."Document No.") then begin
-                IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-to Code";
-            end;
-        end;
-    */
+                //IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
+                begin
+                    if TransferShipmentHeader.get(ItemLedgerEntry."Document No.") then begin
+                        IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-to Code";
+                    end;
+                end;
+
             "Item Ledger Document Type"::"Direct Transfer":
                 IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
         end; //case
