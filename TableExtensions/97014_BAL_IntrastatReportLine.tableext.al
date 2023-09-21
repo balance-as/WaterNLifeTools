@@ -18,6 +18,11 @@ tableextension 97014 "BAL Intrastat Report Line Ext" extends "Intrastat Report L
             Caption = 'Vat Product posting group';
             TableRelation = "VAT Product Posting Group";
         }
+        field(97003; "BAL Reference code 2"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Reference Code 2';
+        }
     }
 
     var

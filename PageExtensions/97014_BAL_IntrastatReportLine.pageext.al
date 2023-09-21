@@ -8,6 +8,10 @@ pageextension 97014 "BAL Intrastat Report Line ext" extends "Intrastat Report Su
             {
                 ApplicationArea = all;
             }
+            field("BAL Reference code 2"; rec."BAL Reference code 2")
+            {
+                ApplicationArea = all;
+            }
             field("BAL Refence name";rec."BAL Refence name")
             {
                 ApplicationArea = all;

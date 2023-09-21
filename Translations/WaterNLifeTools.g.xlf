@@ -488,6 +488,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Intrastat Report Line Ext - Field BAL Reference code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2235956096 - Field 2418721749 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2113709934">
+          <source>Reference Code 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Intrastat Report Line Ext - Field BAL Reference code 2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2235956096 - Field 1821287220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2113709934">
           <source>Vat Product posting group</source>
           <note from="Developer" annotates="general" priority="2"></note>

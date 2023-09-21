@@ -228,6 +228,7 @@ codeunit 97000 "BAL Func"
                 begin
                     if TransferReceiptHeader.get(ItemLedgerEntry."Document No.") then begin
                         IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-from Code";
+                        IntrastatReportLine."BAL Reference code 2" := TransferReceiptHeader."Transfer-to Code";
                     end;
                 end;
             "Item Ledger Document Type"::"Transfer Shipment":
@@ -235,6 +236,7 @@ codeunit 97000 "BAL Func"
                 begin
                     if TransferShipmentHeader.get(ItemLedgerEntry."Document No.") then begin
                         IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-to Code";
+                        IntrastatReportLine."BAL Reference code 2" := TransferReceiptHeader."Transfer-From Code";
                     end;
                 end;
 
