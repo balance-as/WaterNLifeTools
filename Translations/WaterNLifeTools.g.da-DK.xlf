@@ -649,6 +649,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ReceiptHdr Ext - Field BAL Tracking ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1658899168 - Field 1963004473 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3520647894">
+          <source>Partner VAT. No.</source>
+          <target>Partner-Moms-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer Route Ext - Field BAL Partner VAT ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2317455693 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1340367376">
           <source>Shipment ID</source>
           <target>Forsendelses ID</target>

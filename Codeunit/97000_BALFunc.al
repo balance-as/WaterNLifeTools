@@ -9,6 +9,13 @@ codeunit 97000 "BAL Func"
         //cu.OnFindBWPickBinOnBeforeFromBinContentFindSet(FromBinContent, SourceType, TotalQtyPickedBase, TotalQtyToPickBase, IsHandled);)
     end;
 
+    [EventSubscriber(ObjectType::Table, database::"Transfer Header", 'OnAfterGetTransferRoute', '', true, true)]
+    local procedure TableTransferHeaderOnAfterGetTransferRoute(var TransferHeader: Record "Transfer Header"; TransferRoute: Record "Transfer Route")
+    begin
+        if TransferRoute."BAL Partner VAT ID" <> '' then
+            TransferHeader."Partner VAT ID" := TransferRoute."BAL Partner VAT ID";
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Create Inventory Pick/Movement", 'OnBeforeFindFromBinContent', '', true, true)]
     local procedure SetBinRanking(var FromBinContent: Record "Bin Content"; var WarehouseActivityLine: Record "Warehouse Activity Line"; FromBinCode: Code[20]; BinCode: Code[20]; IsInvtMovement: Boolean; IsBlankInvtMovement: Boolean)
     var
