@@ -57,11 +57,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Durability - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 931661215 - Field 3713136612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 931661215 - Field 3891399228 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GTIN No. Series</source>
           <target>GTIN nummer serie</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field GTIN No. Series  - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field GTIN No. Series - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Journal Batch Name</source>
@@ -88,6 +88,12 @@
           <target>[NAB: SUGGESTION]Kode for leveringsmetode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Shipment Method Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 931661215 - Field 209877979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test for Transaction Type</source>
+          <target>Test at Tranaktions Type er udfyldt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAL WaterNlife Setup - Field Test for Transaction Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 931661215 - Field 2108794423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Webshop PAyment URL</source>

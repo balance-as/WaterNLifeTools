@@ -252,4 +252,14 @@ codeunit 97000 "BAL Func"
         end; //case
 
     end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Transfer Order", 'OnBeforeActionEvent', 'Post', false, false)]
+    local procedure TestTransactionType(var Rec: Record "Transfer Header")
+    var
+        BALWaterNlifeSetup: Record "BAL WaterNlife Setup";
+    begin
+        BALWaterNlifeSetup.get;
+        if BALWaterNlifeSetup."Test for Transaction Type" then
+            rec.testfield("Transaction Type")
+    end;
 }

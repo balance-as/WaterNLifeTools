@@ -46,7 +46,7 @@ table 97000 "BAL WaterNlife Setup"
             Caption = 'Webshop PAyment URL';
             DataClassification = CustomerContent;
         }
-        field(50100; "GTIN No. Series "; Text[250])
+        field(50100; "GTIN No. Series"; Text[250])
         {
             Caption = 'GTIN No. Series';
             DataClassification = CustomerContent;
@@ -82,6 +82,11 @@ table 97000 "BAL WaterNlife Setup"
         {
             DataClassification = ToBeClassified;
             TableRelation = Location;
+        }
+        field(40; "Test for Transaction Type"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Test for Transaction Type';
         }
 
     }
