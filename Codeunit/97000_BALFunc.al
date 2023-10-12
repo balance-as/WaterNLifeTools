@@ -242,8 +242,8 @@ codeunit 97000 "BAL Func"
                 //IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
                 begin
                     if TransferShipmentHeader.get(ItemLedgerEntry."Document No.") then begin
-                        IntrastatReportLine."BAL Reference code" := TransferReceiptHeader."Transfer-to Code";
-                        IntrastatReportLine."BAL Reference code 2" := TransferReceiptHeader."Transfer-From Code";
+                        IntrastatReportLine."BAL Reference code" := TransferShipmentHeader."Transfer-to Code";
+                        IntrastatReportLine."BAL Reference code 2" := TransferShipmentHeader."Transfer-From Code";
                     end;
                 end;
 
