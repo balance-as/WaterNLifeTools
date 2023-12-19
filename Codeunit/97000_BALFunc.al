@@ -27,6 +27,17 @@ codeunit 97000 "BAL Func"
     end;
 
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateNoOnBeforeCheckPostingSetups', '', true, true)]
+    local procedure BlankLocationCodeIfNonInventory(var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
+    var
+        Item: Record Item;
+    begin
+        if (SalesLine.Type <> salesline.Type::Item) or (SalesLine."No." = '') then
+            exit;
+        if Item.get(SalesLine."No.") and (Item.Type = item.type::"Non-Inventory") then
+            SalesLine.validate("Location Code", '');
+    end;
+    
     procedure MoveLocation(var SalesHeader: record "Sales Header")
     var
         CountryRegion: Record "Country/Region";
