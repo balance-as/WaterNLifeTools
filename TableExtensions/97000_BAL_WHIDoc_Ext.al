@@ -28,5 +28,7 @@ tableextension 97000 "BAL WHI Document Ext" extends "WHI Document List Buffer"
     }
 
     var
+    p42 :page 42; 
+    t37:record 37;
 
 }
