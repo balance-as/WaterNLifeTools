@@ -17,6 +17,13 @@ tableextension 97000 "BAL WHI Document Ext" extends "WHI Document List Buffer"
             Editable = false;
             FieldClass = FlowField;
         }
+        field(97102; "BAL Item No."; code[20])
+        {
+            Caption = 'Item No.';
+            FieldClass = FlowField;
+            Editable = false;
+            CalcFormula = lookup("Sales Line"."No." where("Document Type" = const(Order), "Document No." = field("Source Document No."), type = filter(2)));
+        }
 
     }
 

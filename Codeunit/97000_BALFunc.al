@@ -74,9 +74,6 @@ codeunit 97000 "BAL Func"
             until CountryRegion.next = 0
         else
             message(FailTxt, CountryRegion.TableCaption, CountryRegion.fieldcaption(MoveFromLocation), CountryRegion.fieldcaption(MovetoLocation));
-
-
-
     end;
 
     procedure SetExcludeFromMovement(var SalesHeader: record "Sales Header"; SetTrue: boolean)
@@ -135,7 +132,6 @@ codeunit 97000 "BAL Func"
         ReturnShipmentLine: Record "Return Shipment Line";
         TransferReceiptHeader: Record "Transfer Receipt Header";
         TransferShipmentHeader: Record "Transfer Shipment Header";
-
     begin
         case ItemLedgerEntry."Document Type" of
 
@@ -229,7 +225,6 @@ codeunit 97000 "BAL Func"
                         IntrastatReportLine."BAL Vat Product Posting Group" := ReturnReceiptLine."VAT Prod. Posting Group";
                 end;
 
-
             "Item Ledger Document Type"::"Transfer Receipt":
                 //IntrastatReportLine."BAL Reference code" := ItemLedgerEntry."Location Code";
                 begin
@@ -261,5 +256,16 @@ codeunit 97000 "BAL Func"
         BALWaterNlifeSetup.get;
         if BALWaterNlifeSetup."Test for Transaction Type" then
             rec.testfield("Transaction Type")
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateNoOnBeforeCheckPostingSetups', '', true, true)]
+    local procedure BlankLocationCodeIfNonInventory(var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
+    var
+        Item: Record Item;
+    begin
+        if (SalesLine.Type <> salesline.Type::Item) or (SalesLine."No." = '') then
+            exit;
+        if Item.get(SalesLine."No.") and (Item.Type = item.type::"Non-Inventory") then
+            SalesLine.validate("Location Code", '');
     end;
 }

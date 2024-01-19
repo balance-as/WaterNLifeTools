@@ -558,6 +558,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Transfer ShipmentHdr Ext - Field BAL Tracking ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2424118337 - Field 1427948799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHI Document Ext - Field BAL Item No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2424118337 - Field 2000989190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 436923333">
           <source>Shipment ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
