@@ -39,7 +39,7 @@ page 97000 "BAL WaterNlife Setup Card"
             }
             group(GTIN)
             {
-                field("GTIN No. Series "; rec."GTIN No. Series")
+                field("GTIN No. Series "; Rec."GTIN No. Series")
                 {
                     ApplicationArea = all;
                 }
