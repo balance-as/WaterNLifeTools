@@ -687,7 +687,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3651962335 - Field 2393682755 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2430374758">
           <source>Max. Amount in Currency</source>
-          <target>Maks. beløb i vakuta</target>
+          <target>Maks. beløb i valuta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL VAT Busi. Posting Grp. Ext - Field BAL Max. Amount in Currency - Property Caption</note>
         </trans-unit>
