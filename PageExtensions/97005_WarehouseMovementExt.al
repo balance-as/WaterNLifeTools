@@ -4,7 +4,7 @@ pageextension 97005 "BAL Warehouse Movement ext" extends "Warehouse Movement"
     {
         addafter("Sorting Method")
         {
-            field("Registering No. Series"; rec."Registering No. Series")
+            field("BAL Registering No. Series"; rec."Registering No. Series")
             {
                 ApplicationArea = all;
             }

@@ -8,11 +8,11 @@ pageextension 97006 "BAL InventoryPick Ext" extends "Inventory Pick"
             {
                 ApplicationArea = All;
             }
-            field("Assignment Date"; rec."Assignment Date")
+            field("BAL Assignment Date"; rec."Assignment Date")
             {
                 ApplicationArea = All;
             }
-            field("Assignment Time"; rec."Assignment Time")
+            field("BAL Assignment Time"; rec."Assignment Time")
             {
                 ApplicationArea = All;
             }
