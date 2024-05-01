@@ -20,7 +20,8 @@ codeunit 97004 "BAL Report Events"
                 if VATBusinessPostingGroup.Get(SalesHeader."VAT Bus. Posting Group") and (VATBusinessPostingGroup."BAL Max. Amount in Currency" > 0) then begin
                     VATBusinessPostingGroup.TestField("BAL Max. Amount in Currency");
                     SalesHeader.CalcFields(Amount, "Amount Including VAT");
-                    CalcAmount := SalesHeader.Amount;
+                    //CalcAmount := SalesHeader.Amount;
+                    CalcAmount := SalesHeader."Amount Including VAT";
                     if SalesHeader."Currency Code" <> VATBusinessPostingGroup."BAL Currency Code" then
                         if SalesHeader."Currency Code" = '' then
                             CalcAmount := CurrencyExchangeRate.ExchangeAmtLCYToFCY(WorkDate(), VATBusinessPostingGroup."BAL Currency Code", CalcAmount, CurrencyExchangeRate.ExchangeRate(WorkDate(), VATBusinessPostingGroup."BAL Currency Code"))

@@ -618,6 +618,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ErrorTxt</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get GTIN no.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1391811513 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Get new GTIN Number from No. series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item Card Ext - Property ToolTip</note>
+        </trans-unit>
       </group>
     </body>
   </file>
