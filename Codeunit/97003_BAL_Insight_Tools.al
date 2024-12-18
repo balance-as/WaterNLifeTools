@@ -488,5 +488,6 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         iEventID: Integer;
         tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
+        c23044920:Codeunit 23044920;
 }
 

@@ -433,6 +433,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Move Amazon Orders - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 28985575 - Action 781185298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
+          <source>Create name from contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action MoveName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 28985575 - Action 1205948582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>This function is used to change value for "Exclude from movement"</source>
           <note from="Developer" annotates="general" priority="2"></note>
