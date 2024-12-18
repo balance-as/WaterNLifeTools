@@ -49,7 +49,7 @@ codeunit 97000 "BAL Func"
 
         SalesHeader2: Record "Sales Header";
     begin
-        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type");
         SalesHeader.setrange(Status, SalesHeader.Status::Open);
         CountryRegion.setfilter(moveFromLocation, '<>%1', '');
         CountryRegion.setfilter(moveToLocation, '<>%1', '');

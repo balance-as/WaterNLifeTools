@@ -458,6 +458,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Headerlist Ext. - Action Set not Exclude From - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3305513813 - Action 1304118534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
+          <source>This function is used to change "Shipment Location" according to setup in Country/Region table</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Invoicelist Ext. - Action Move Amazon Orders - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3305513813 - Action 1304118534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
+          <source>Move Amazon Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Invoicelist Ext. - Action Move Amazon Orders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3305513813 - Action 781185298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
+          <source>Create name from contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Invoicelist Ext. - Action MoveName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 910320485 - Control 1771472914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 105737358">
           <source>Location to change Amazon - Sales Order Location to</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -29,6 +29,7 @@ pageextension 97008 "BAL Sales Headerlist Ext." extends "Sales Order List"
                     SalesHeader: Record "Sales Header";
                 begin
                     CurrPage.SETSELECTIONFILTER(SalesHeader);
+                    SalesHeader.findset;
                     BALFunc.MoveLocation(salesheader);
                 end;
             }
