@@ -543,6 +543,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Item JnlLine Ext - Field BAL GTIN - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1543136104 - Field 3086714372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 463323981">
+          <source>Sku Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL ItemTempl Tabext - Field BAL Sku Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1543136104 - Field 1383628014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 463323981">
+          <source>SKU Location Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL ItemTempl Tabext - Field BAL SKU Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1543136104 - Field 1865050079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 463323981">
+          <source>Sku Variant No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL ItemTempl Tabext - Field BAL Sku Variant - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1515121953 - Field 1383471679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Pick Exist</source>
           <note from="Developer" annotates="general" priority="2"></note>

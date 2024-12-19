@@ -37,7 +37,7 @@ codeunit 97000 "BAL Func"
         if Item.get(SalesLine."No.") and (Item.Type = item.type::"Non-Inventory") then
             SalesLine.validate("Location Code", '');
     end;
-    
+
     procedure MoveLocation(var SalesHeader: record "Sales Header")
     var
         CountryRegion: Record "Country/Region";
@@ -269,4 +269,45 @@ codeunit 97000 "BAL Func"
             rec.testfield("Transaction Type")
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Templ. Mgt.", 'OnAfterCreateItemFromTemplate', '', true, true)]
+    local procedure CodeunitItemTemplMgtOnAfterCreateItemFromTemplate(var Item: Record Item; ItemTempl: Record "Item Templ.")
+    var
+        StockkeepingUnit: Record "Stockkeeping Unit";
+    begin
+        if ItemTempl."BAL SKU Location Code" <> '' then begin
+            ItemTempl.TestField("BAL Sku Item No.");
+            StockkeepingUnit.SetRange("Location Code", ItemTempl."BAL SKU Location Code");
+            StockkeepingUnit.SetRange("Item No.", ItemTempl."BAL Sku Item No.");
+            if ItemTempl."BAL Sku Variant" <> '' then
+                StockkeepingUnit.SetRange("Variant Code", ItemTempl."BAL Sku Variant");
+            if StockkeepingUnit.findset then begin
+                StockkeepingUnit."Item No." := Item."No.";
+                StockkeepingUnit.Description := Item.Description;
+                StockkeepingUnit."Description 2" := Item."Description 2";
+                if StockkeepingUnit.insert then;
+            end
+        end;
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Templ. Mgt.", 'OnApplyItemTemplateOnBeforeItemGet', '', true, true)]
+    local procedure CodeunitItemTemplMgtOnApplyItemTemplateOnBeforeItemGet(var Item: Record Item; ItemTempl: Record "Item Templ.")
+    var
+        StockkeepingUnit: Record "Stockkeeping Unit";
+    begin
+        if ItemTempl."BAL SKU Location Code" <> '' then begin
+            ItemTempl.TestField("BAL Sku Item No.");
+            StockkeepingUnit.SetRange("Location Code", ItemTempl."BAL SKU Location Code");
+            StockkeepingUnit.SetRange("Item No.", ItemTempl."BAL Sku Item No.");
+            if ItemTempl."BAL Sku Variant" <> '' then
+                StockkeepingUnit.SetRange("Variant Code", ItemTempl."BAL Sku Variant");
+            if StockkeepingUnit.findset then begin
+                StockkeepingUnit."Item No." := Item."No.";
+                StockkeepingUnit.Description := Item.Description;
+                StockkeepingUnit."Description 2" := Item."Description 2";
+                if StockkeepingUnit.insert then;
+            end
+        end;
+
+    end;
 }
