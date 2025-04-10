@@ -16,6 +16,18 @@ tableextension 97008 "BAL WHsActivityHeader Ext" extends "Warehouse Activity Hea
             Caption = 'Sell-to Customer Name';
 
         }
+         field(97734; "BAL Shipping Agent Code"; code[10])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Shipping Agent Code" where("Document Type" = const(Order), "No." = field("Source No.")));
+            Caption = 'Shipping Agent Code';
+        }
+        field(97735; "BAL shipping agent Service"; code[10])
+        {
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Shipping Agent Service Code" where("Document Type" = const(Order), "No." = field("Source No.")));
+            Caption = 'Ship-to Agent Service';
+        }       
 
     }
 
