@@ -19,6 +19,7 @@ codeunit 97001 "BAL InsightFunc WNL"
     end;
 
     var
+        iEventID: Integer;
         codRegionCode: code[10];
         cuRegistrationMgmt: Codeunit "WHI Registration Mgmt.";
         cuCommonFuncs: Codeunit "WHI Common Functions";
@@ -33,7 +34,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         ltextOutputText: BigText;
         losReturnMessage: OutStream;
     begin
-
+        iEventID := piEventID;
         case PiEventId of
 
             2000102:
@@ -48,6 +49,8 @@ codeunit 97001 "BAL InsightFunc WNL"
                 GetNextWhseDocument(ptrecEventParams, pbsoutput);
             2000210:
                 getDocumentListWBS(ptrecEventParams, pbsOutput);
+            2000211:
+                getWarehouseActivityDocumentWBS(ptrecEventParams, pbsOutput);
         end;
     end; // Case
 
@@ -152,7 +155,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         c23044920: Codeunit 23044920;
         lrecActHeader: Record "Warehouse Activity Header";
         lcodUserName: Code[50];
-        
+
     begin
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
         lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
@@ -161,8 +164,8 @@ codeunit 97001 "BAL InsightFunc WNL"
             ptrecEventParams.setValue('doc_num', lrecActHeader."No.");
             ptrecEventParams.setValue('next_doc_num', lrecActHeader."No.");
             lcodUserName := CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, MaxStrLen(lcodUserName));
-            lrecActHeader."Assigned User ID" := lcodUserName;
-            lrecActHeader.modify;
+            //   lrecActHeader."Assigned User ID" := lcodUserName;
+            // lrecActHeader.modify;
         end;
         //  if confirm(StrSubstNo('Doc %1 next %2 Table  %3 ', ptrecEventParams.GetExtendedValue('doc_num'), ptrecEventParams.GetExtendedValue('next_doc_num'), lrecActHeader)) then;
         lcuWHICommond.generateSuccessReturn('', pbsoutput);
@@ -470,4 +473,211 @@ codeunit 97001 "BAL InsightFunc WNL"
 
         exit(lsEscapedFilter);
     end;
+    //herfra
+
+    procedure getWarehouseActivityDocumentWBS(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecLocation: Record Location;
+        lrecItemTrackingCode: Record "Item Tracking Code";
+        lrecActHeader: Record "Warehouse Activity Header";
+        lrecActLine: Record "Warehouse Activity Line";
+        lrrefWriter: RecordRef;
+        lcodLocation: Code[10];
+        lcodActivityNo: Code[20];
+        liActivityType: Integer;
+        ldnOutput: TextBuilder;
+        lbFastDS: Boolean;
+        lbTakeMode: Boolean;
+        lbHandled: Boolean;
+        xiEventID: Integer;//bb
+    begin
+        lbFastDS := ptrecEventParams.getSupportsFastDataset();
+        xiEventID := 20001;//bb
+        lcodLocation := CopyStr(ptrecEventParams.GetExtendedValue('location'), 1, MaxStrLen(lcodLocation));
+        lcodLocation := 'GRAM-WBS';//bb
+        lcodActivityNo := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodActivityNo));
+        liActivityType := ptrecEventParams.getValueAsInt('document_type');
+        lbTakeMode := ptrecEventParams.getValueAsBool('take_mode');
+
+        lrecActHeader.Get(liActivityType, lcodActivityNo);
+
+        case lrecActHeader.Type of
+            lrecActHeader.Type::Pick:
+                cuRegistrationMgmt.CheckPickSupported(true);
+            lrecActHeader.Type::"Invt. Pick":
+                cuRegistrationMgmt.CheckInvtPickSupported(true);
+            lrecActHeader.Type::"Put-away":
+                cuRegistrationMgmt.CheckPutawaySupported(true);
+            lrecActHeader.Type::"Invt. Put-away":
+                cuRegistrationMgmt.CheckInvtPutawaySupported(true);
+            lrecActHeader.Type::Movement:
+                cuRegistrationMgmt.CheckMovementSupported(true);
+            lrecActHeader.Type::"Invt. Movement":
+                cuRegistrationMgmt.CheckInvtMovementSupported(true);
+        end;
+
+        assignWhseActivity(lrecActHeader, ptrecEventParams);
+
+        if lrecLocation.Get(lcodLocation) then;
+        cuCommonFuncs.checkLocation(lcodLocation, lrecActHeader."Location Code");
+
+#pragma warning disable AA0217
+        ldnOutput.Append(StrSubstNo('<DATASET><TABLE id="header" eventid="%1" tableid="%2"><COLS>', xiEventID, DATABASE::"Warehouse Activity Header"));
+#pragma warning restore AA0217
+        cuCommonFuncs.initializeColumns(true);
+        cuCommonFuncs.addDSColumnsFromConfigDN(ldnOutput, xiEventID, '', DATABASE::"Warehouse Activity Header");
+        ldnOutput.Append('</COLS><ROWS><R><FIELDS>');
+        lrrefWriter.GetTable(lrecActHeader);
+        cuCommonFuncs.addDSFieldsForRecordDN(ldnOutput, lrrefWriter, xiEventID, '');
+        ldnOutput.Append('</FIELDS></R></ROWS>');
+        ldnOutput.Append('</TABLE>');
+#pragma warning disable AA0217
+        ldnOutput.Append(StrSubstNo('<TABLE id="line" eventid="%1" tableid="%2">', xiEventID, DATABASE::"Warehouse Activity Line"));
+#pragma warning restore AA0217
+        ldnOutput.Append('<COLS>');
+        cuCommonFuncs.initializeColumns(true);
+        cuCommonFuncs.addDSColumnsFromConfigDN(ldnOutput, xiEventID, '', DATABASE::"Warehouse Activity Line");
+
+        if (lbFastDS) then
+            cuCommonFuncs.addDSColumnDN(ldnOutput, '', lrecItemTrackingCode.Code, false, 0, '', 'Item Tracking Code')
+        else
+            cuCommonFuncs.addDSTrackingColumnsDN(ldnOutput);
+
+        ldnOutput.Append('</COLS><ROWS>');
+
+
+        lrecActLine.SetCurrentKey("Activity Type", "No.", "Sorting Sequence No.");
+        lrecActLine.SetRange("Activity Type", lrecActHeader.Type);
+        lrecActLine.SetRange("No.", lrecActHeader."No.");
+        lrecActLine.SetRange("Breakbulk No.", 0);
+
+        if (lbTakeMode) then
+            lrecActLine.SetFilter("Action Type", '%1|%2', lrecActLine."Action Type"::" ", lrecActLine."Action Type"::Take)
+        else
+            lrecActLine.SetFilter("Action Type", '%1|%2', lrecActLine."Action Type"::" ", lrecActLine."Action Type"::Place);
+
+
+        if (lrecActLine.FindSet(false)) then
+            repeat
+                getWarehouseActivityLine(ldnOutput, lrecActLine, lrecActHeader, lbFastDS);
+            until (lrecActLine.Next() = 0);
+
+        ldnOutput.Append('</ROWS></TABLE>');
+
+        if (ptrecEventParams.getNeedsItemTrackingTable()) then
+            cuDataset.BuildItemTrackingTable(ldnOutput);
+
+        ldnOutput.Append('</DATASET>');
+
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Warehouse Activity Header"));
+        ptrecEventParams.setValue('Document No.', lcodActivityNo);
+        ptrecEventParams.setValue('Source Document Type', Format(lrecActLine."Source Type"));
+        ptrecEventParams.setValue('Source Document No.', lrecActLine."Source No.");
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+
+    end;
+
+    procedure assignWhseActivity(var precWhseActivityHeader: Record "Warehouse Activity Header"; var ptrecEventParams: Record "IWX Event Param" temporary)
+    var
+        lrecConfig: Record "WHI Device Configuration";
+        lcodUserName: Code[50];
+        lbHandled: Boolean;
+    begin
+        lcodUserName := cuCommonFuncs.getUserNameWithDomain(ptrecEventParams);
+
+        if (lcodUserName <> '') then begin
+            cuCommonFuncs.getDeviceConfig(lrecConfig, ptrecEventParams);
+
+            if (lrecConfig."Assign Document" = lrecConfig."Assign Document"::Always) or
+              ((lrecConfig."Assign Document" = lrecConfig."Assign Document"::Unassigned) and (precWhseActivityHeader."Assigned User ID" = '')) then begin
+                precWhseActivityHeader."Assigned User ID" := lcodUserName;
+                precWhseActivityHeader."Assignment Date" := cuCommonFuncs.GetTodaysDate(ptrecEventParams);
+                precWhseActivityHeader."Assignment Time" := cuCommonFuncs.GetTodaysTime(ptrecEventParams);
+                ;
+                precWhseActivityHeader.Modify();
+            end;
+        end;
+    end;
+
+    procedure getWarehouseActivityLine(var pdnOutput: TextBuilder; precWhseActivityLine: Record "Warehouse Activity Line"; precActHeader: Record "Warehouse Activity Header"; pbFastDS: Boolean)
+    var
+        lrecItem: Record Item;
+        lrrefWriter: RecordRef;
+        lpositiveFlag: Boolean;
+        liSourceRefNumber: Integer;
+    begin
+        lpositiveFlag := false;
+        pdnOutput.Append('<R>');
+        if (not pbFastDS) then
+            pdnOutput.Append('<FIELDS>');
+
+        cuCommonFuncs.setDSFieldOverrideValue(20001,
+          '',
+          DATABASE::"Warehouse Activity Line",
+          precWhseActivityLine.FieldNo("Qty. Outstanding"),
+#pragma warning disable AA0217
+          StrSubstNo('%1', (precWhseActivityLine.Quantity
+            - precWhseActivityLine."Qty. Handled"
+            - precWhseActivityLine."Qty. to Handle"))
+#pragma warning restore AA0217
+          );
+
+        lrrefWriter.GetTable(precWhseActivityLine);
+        cuCommonFuncs.addDSFieldsForRecordDN(pdnOutput, lrrefWriter, 20001, '');
+        lrecItem.Get(precWhseActivityLine."Item No.");
+
+
+        if (pbFastDS) then
+            cuCommonFuncs.addDSFieldDN(pdnOutput, lrecItem."Item Tracking Code")
+        else
+            cuCommonFuncs.addDSTrackingFieldsDN(pdnOutput, lrecItem."Item Tracking Code");
+
+        if (not pbFastDS) then
+            pdnOutput.Append('</FIELDS>');
+
+        case precActHeader.Type of
+            precActHeader.Type::"Put-away":
+                lpositiveFlag := true;
+            precActHeader.Type::"Invt. Put-away":
+                lpositiveFlag := true;
+            precActHeader.Type::Pick:
+                lpositiveFlag := false;
+            precActHeader.Type::"Invt. Pick":
+                lpositiveFlag := false;
+            precActHeader.Type::Movement:
+                ;
+            precActHeader.Type::"Invt. Movement":
+                ;
+        end;
+
+        liSourceRefNumber := precWhseActivityLine."Source Line No.";
+        case precWhseActivityLine."Source Document" of
+            precWhseActivityLine."Source Document"::"Prod. Consumption":
+                liSourceRefNumber := precWhseActivityLine."Source Subline No.";
+        end;
+
+        cuCommonFuncs.GetReservations(
+          precWhseActivityLine."Item No.",
+          precWhseActivityLine."Variant Code",
+          precWhseActivityLine."Location Code",
+          precWhseActivityLine."Source No.",
+          liSourceRefNumber,
+          lpositiveFlag,
+          precWhseActivityLine."Source Type",
+          precWhseActivityLine."Lot No.",
+          precWhseActivityLine."Serial No.",
+#if V18_OR_HIGHER
+          precWhseActivityLine."Package No.",
+#else
+          '',
+#endif
+          pdnOutput
+          );
+
+        pdnOutput.Append('</R>');
+    end;
+
+
 }
