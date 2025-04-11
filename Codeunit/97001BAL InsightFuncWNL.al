@@ -51,8 +51,6 @@ codeunit 97001 "BAL InsightFunc WNL"
                 getDocumentListWBS(ptrecEventParams, pbsOutput);
             2000211:
                 getWarehouseActivityDocumentWBS(ptrecEventParams, pbsOutput);
-            2000212:
-                GetNextWhseDocumentValue(ptrecEventParams, pbsoutput);
         end;
     end; // Case
 
@@ -155,21 +153,6 @@ codeunit 97001 "BAL InsightFunc WNL"
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
         lrecActHeader: Record "Warehouse Activity Header";
-        lcodUserName: Code[50];
-    begin
-        lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
-        lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
-        lrecActHeader.setfilter("Assigned User ID", '%1', '');
-        if lrecActHeader.FindSet() then begin
-            ptrecEventParams.setValue('new_doc', lrecActHeader."No.");
-        end;
-        lcuWHICommond.generateSuccessReturn(ptrecEventParams.getValue('doc_num'), pbsoutput);  //Kun for at få besked om hvad der er fundet i scanner
-    end;
-
-    local procedure GetNextWhseDocumentValue(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
-    var
-        lcuWHICommond: Codeunit "WHI Common Functions";
-        lrecActHeader: Record "Warehouse Activity Header";
         pbOverrideWHI: Boolean;
     begin
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
@@ -178,7 +161,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         if lrecActHeader.FindSet() then begin
             pbsOutput.AddText(StrSubstNo('<VALUE>%1</VALUE>', lrecActHeader."No."));
         end;
-        lcuWHICommond.generateSuccessReturn('', pbsoutput);
+
     end;
 
     procedure getDocumentListWBS(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
