@@ -51,6 +51,8 @@ codeunit 97001 "BAL InsightFunc WNL"
                 getDocumentListWBS(ptrecEventParams, pbsOutput);
             2000211:
                 getWarehouseActivityDocumentWBS(ptrecEventParams, pbsOutput);
+            2000212:
+                GetNextWhseDocumentValue(ptrecEventParams, pbsoutput);
         end;
     end; // Case
 
@@ -152,22 +154,30 @@ codeunit 97001 "BAL InsightFunc WNL"
     local procedure GetNextWhseDocument(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
-        c23044920: Codeunit 23044920;
         lrecActHeader: Record "Warehouse Activity Header";
         lcodUserName: Code[50];
-
     begin
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
         lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
         lrecActHeader.setfilter("Assigned User ID", '%1', '');
         if lrecActHeader.FindSet() then begin
-            ptrecEventParams.setValue('doc_num', lrecActHeader."No.");
-            ptrecEventParams.setValue('next_doc_num', lrecActHeader."No.");
-            lcodUserName := CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, MaxStrLen(lcodUserName));
-            //   lrecActHeader."Assigned User ID" := lcodUserName;
-            // lrecActHeader.modify;
+            ptrecEventParams.setValue('new_doc', lrecActHeader."No.");
         end;
-        //  if confirm(StrSubstNo('Doc %1 next %2 Table  %3 ', ptrecEventParams.GetExtendedValue('doc_num'), ptrecEventParams.GetExtendedValue('next_doc_num'), lrecActHeader)) then;
+        lcuWHICommond.generateSuccessReturn(ptrecEventParams.getValue('doc_num'), pbsoutput);  //Kun for at få besked om hvad der er fundet i scanner
+    end;
+
+    local procedure GetNextWhseDocumentValue(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        lcuWHICommond: Codeunit "WHI Common Functions";
+        lrecActHeader: Record "Warehouse Activity Header";
+        pbOverrideWHI: Boolean;
+    begin
+        lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
+        lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
+        lrecActHeader.setfilter("Assigned User ID", '%1', '');
+        if lrecActHeader.FindSet() then begin
+            pbsOutput.AddText(StrSubstNo('<VALUE>%1</VALUE>', lrecActHeader."No."));
+        end;
         lcuWHICommond.generateSuccessReturn('', pbsoutput);
     end;
 
