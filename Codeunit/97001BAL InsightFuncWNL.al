@@ -51,6 +51,9 @@ codeunit 97001 "BAL InsightFunc WNL"
                 getDocumentListWBS(ptrecEventParams, pbsOutput);
             2000211:
                 getWarehouseActivityDocumentWBS(ptrecEventParams, pbsOutput);
+            2000212:
+                registerActivityDocumentWBS(ptrecEventParams, pbsOutput);
+                
         end;
     end; // Case
 
@@ -153,7 +156,7 @@ codeunit 97001 "BAL InsightFunc WNL"
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
         lrecActHeader: Record "Warehouse Activity Header";
-        pbOverrideWHI: Boolean;
+        pbOverrideWHI: Boolean;       
     begin
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
         lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
@@ -661,16 +664,97 @@ codeunit 97001 "BAL InsightFunc WNL"
           precWhseActivityLine."Source Type",
           precWhseActivityLine."Lot No.",
           precWhseActivityLine."Serial No.",
-#if V18_OR_HIGHER
           precWhseActivityLine."Package No.",
-#else
-          '',
-#endif
-          pdnOutput
-          );
+          pdnOutput);
 
         pdnOutput.Append('</R>');
     end;
+
+
+    procedure registerActivityDocumentWBS(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecActivityHeader: Record "Warehouse Activity Header";
+        lrecActivityLine: Record "Warehouse Activity Line";
+        lrecConfig: Record "WHI Device Configuration";
+        lrecLPSetup: Record "IWX License Plate Setup";
+        lcuRegisterWhseDoc: Codeunit "Whse.-Activity-Register";
+        lcuWMSManagement: Codeunit "WMS Management";
+        lcuWhseActPost: Codeunit "Whse.-Activity-Post";
+        ltxtDetails: Text[250];
+        lcodLocation: Code[10];
+        lcodActivityNo: Code[20];
+        liActivityType: Integer;
+        lbManuallyPosted: Boolean;
+        WHIWhseActivityMgmt: Codeunit "WHI Whse. Activity Mgmt.";
+        tcLogRegisterDocumentMsg: Label 'Register the document [%1].', Comment = '%1 = Document No.';
+    begin
+        lcodLocation := CopyStr(ptrecEventParams.GetExtendedValue('location'), 1, MaxStrLen(lcodLocation));
+        lcodLocation := 'WBS';
+        lcodActivityNo := CopyStr(ptrecEventParams.GetExtendedValue('No.'), 1, MaxStrLen(lcodActivityNo));
+        liActivityType := ptrecEventParams.getValueAsInt('Type');
+        lbManuallyPosted := ptrecEventParams.getValueAsBool('manuallyPosted');
+
+
+        lrecActivityHeader.Get(liActivityType, lcodActivityNo);
+        cuCommonFuncs.checkLocation(lcodLocation, lrecActivityHeader."Location Code");
+        WHIWhseActivityMgmt.handleBreakBulkLines(liActivityType, lcodActivityNo);
+
+        lrecActivityLine.SetRange("Activity Type", lrecActivityHeader.Type);
+        lrecActivityLine.SetRange("No.", lrecActivityHeader."No.");
+
+        if not lbManuallyPosted then
+            lrecActivityLine.SetFilter("Qty. to Handle", '<>0');
+
+        if (lrecActivityLine.FindSet(false)) then begin
+            cuCommonFuncs.getDeviceConfig(lrecConfig, ptrecEventParams);
+            if not lrecLPSetup.Get() then begin
+                lrecLPSetup.Init();
+                lrecLPSetup.Insert(true);
+            end;
+
+            if lrecConfig."Update Shipment on Pick" = lrecConfig."Update Shipment on Pick"::Yes then begin
+                if lrecLPSetup."Update Shipment on Pick" <> lrecLPSetup."Update Shipment on Pick"::Yes then begin
+                    lrecLPSetup."Update Shipment on Pick" := lrecLPSetup."Update Shipment on Pick"::Yes;
+                    lrecLPSetup.Modify();
+                end;
+            end else
+                if lrecLPSetup."Update Shipment on Pick" <> lrecLPSetup."Update Shipment on Pick"::No then begin
+                    lrecLPSetup."Update Shipment on Pick" := lrecLPSetup."Update Shipment on Pick"::No;
+                    lrecLPSetup.Modify();
+                end;
+
+
+            lrecActivityHeader.Validate("Posting Date", cuCommonFuncs.GetTodaysDate(ptrecEventParams));
+            lrecActivityHeader.Modify(true);
+
+            //if cuRegistrationMgmt.IsWHIInstalled() then
+              //  OnBeforeRegisterWhseActivity(lrecActivityHeader, lrecActivityLine, ptrecEventParams);
+
+            if ((lrecActivityHeader.Type = lrecActivityHeader.Type::"Invt. Put-away") or
+              (lrecActivityHeader.Type = lrecActivityHeader.Type::"Invt. Pick")) then begin
+                lcuWhseActPost.ShowHideDialog(true);
+                lcuWhseActPost.Run(lrecActivityLine);
+            end
+            else begin
+                lcuWMSManagement.CheckBalanceQtyToHandle(lrecActivityLine);
+                lcuRegisterWhseDoc.ShowHideDialog(true);
+                lcuRegisterWhseDoc.Run(lrecActivityLine);
+            end;
+        end;
+
+        WHIWhseActivityMgmt.setQtyToShipForInventoryMovement(lrecActivityHeader);
+
+        cuCommonFuncs.generateSuccessReturn(pbsOutput);
+
+        ltxtDetails := StrSubstNo(tcLogRegisterDocumentMsg, lcodActivityNo);
+        ptrecEventParams.setValue('details', ltxtDetails);
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Warehouse Activity Header"));
+        ptrecEventParams.setValue('Document No.', lcodActivityNo);
+        ptrecEventParams.setValue('Source Document Type', Format(lrecActivityLine."Source Type"));
+        ptrecEventParams.setValue('Source Document No.', lrecActivityLine."Source No.");
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
 
 
 }
