@@ -118,6 +118,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method SetExcludeFromMovement - NamedType MessageTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 144076238 - Method 3754633119 - NamedType 324095200" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register the document [%1].</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL InsightFunc WNL - Method registerActivityDocumentWBS - NamedType tcLogRegisterDocumentMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 23757146 - Method 3998599243 - NamedType 4062454199" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Business Posting Group may only be used for value of max. %1 %2, %3 %4 is of %1 %5</source>
           <note from="Developer" annotates="general" priority="2"></note>

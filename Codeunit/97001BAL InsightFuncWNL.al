@@ -158,6 +158,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         lrecActHeader: Record "Warehouse Activity Header";
         pbOverrideWHI: Boolean;       
     begin
+        lrecActHeader.LockTable(true,true);
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
         lrecActHeader.SetRange(Type, lrecActHeader.Type::"Invt. Pick");
         lrecActHeader.setfilter("Assigned User ID", '%1', '');
