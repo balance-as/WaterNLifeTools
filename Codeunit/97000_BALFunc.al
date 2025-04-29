@@ -310,4 +310,12 @@ codeunit 97000 "BAL Func"
         end;
 
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"whse. jnl.-register line", 'OnBeforeCheckDefaultBin', '', true, true)]
+    local procedure CodeunitwhsejnlregisterlineOnBeforeCheckDefaultBin(var BinContent: Record "Bin Content"; var IsHandled: Boolean; WhseEntry: Record "Warehouse Entry")
+    var
+        whes: codeunit "whse. jnl.-register line";
+    begin
+        IsHandled := true;
+    end;
 }
