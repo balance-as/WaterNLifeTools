@@ -25,8 +25,8 @@ codeunit 97001 "BAL InsightFunc WNL"
         cuCommonFuncs: Codeunit "WHI Common Functions";
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         cuDataset: Codeunit "WHI Dataset Tools";
-    //        cuJournalFuncs: Codeunit "WHI Journal Functions";
-    //      cuCommonFuncs: Codeunit "WHI Common Functions";
+        cuJournalFuncs: Codeunit "WHI Journal Functions";
+    
 
     procedure BALExecuteEvent(PiEventId: integer; var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText);
     var
@@ -53,7 +53,7 @@ codeunit 97001 "BAL InsightFunc WNL"
                 getWarehouseActivityDocumentWBS(ptrecEventParams, pbsOutput);
             2000212:
                 registerActivityDocumentWBS(ptrecEventParams, pbsOutput);
-                
+
         end;
     end; // Case
 
@@ -156,7 +156,7 @@ codeunit 97001 "BAL InsightFunc WNL"
     var
         lcuWHICommond: Codeunit "WHI Common Functions";
         lrecActHeader: Record "Warehouse Activity Header";
-        pbOverrideWHI: Boolean;       
+        pbOverrideWHI: Boolean;
     begin
         //lrecActHeader.LockTable(true);
         lrecActHeader.SetRange("Location Code", 'GRAM-WBS');
@@ -729,7 +729,7 @@ codeunit 97001 "BAL InsightFunc WNL"
             lrecActivityHeader.Modify(true);
 
             //if cuRegistrationMgmt.IsWHIInstalled() then
-              //  OnBeforeRegisterWhseActivity(lrecActivityHeader, lrecActivityLine, ptrecEventParams);
+            //  OnBeforeRegisterWhseActivity(lrecActivityHeader, lrecActivityLine, ptrecEventParams);
 
             if ((lrecActivityHeader.Type = lrecActivityHeader.Type::"Invt. Put-away") or
               (lrecActivityHeader.Type = lrecActivityHeader.Type::"Invt. Pick")) then begin
