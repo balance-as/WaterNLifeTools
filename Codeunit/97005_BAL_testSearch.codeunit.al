@@ -11,26 +11,25 @@ codeunit 97005 "BAL Test Search scanner"
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"WHI Whse. Activity Mgmt.", 'OnAfterFilterLookupWhseActivityHeaders', '', true, true)]   //23044920
     local procedure CodeunitWHIWhseActivityMgmtOnAfterFilterLookupWhseActivityHeaders(var pbOnlyAssignedDocs: Boolean; var pcodUser: Code[50]; var precWhseActivityHeader: Record "Warehouse Activity Header"; var psFilter: Text)
-    begin
-        //searchActivityDocuments
-        //if confirm(StrSubstNo('bbtester filter %1 %2 ', psfilter, precWhseActivityHeader.count)) then;
-        exit;
+    var
+        FilterTxt: Text;
+    begin        
         if psFilter = '' then
             exit;
         precWhseActivityHeader.findlast;
-        if confirm(format(precWhseActivityHeader) + ' ## ' + precWhseActivityHeader.getfilters) then;
-        precWhseActivityHeader.setrange("no.", psFilter);
-        precWhseActivityHeader.findset;
+        precWhseActivityHeader.setfilter("no.", psFilter);
         if precWhseActivityHeader.IsEmpty then begin
             precWhseActivityHeader.setrange("No.");
-            precWhseActivityHeader.setrange("Sell-to Customer Name", psFilter);
-            //  if confirm('bbtester ') then;
-            if precWhseActivityHeader.IsEmpty then begin
-                precWhseActivityHeader.setrange("Sell-to Customer Name");
-                precWhseActivityHeader.setrange("Source No.", psFilter);
+            precWhseActivityHeader.setfilter("Sell-to Customer Name", '@' + psFilter);
+            if precWhseActivityHeader.findset then
+                repeat
+                    if FilterTxt = '' then
+                        FilterTxt := precWhseActivityHeader."No."
+                    else
+                        FilterTxt += '|' + precWhseActivityHeader."No.";
+                until precWhseActivityHeader.next = 0;
 
-            end;
-
+            psFilter := FilterTxt;
         end;
     end;
 }
