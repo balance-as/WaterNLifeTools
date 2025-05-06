@@ -26,7 +26,7 @@ codeunit 97001 "BAL InsightFunc WNL"
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         cuDataset: Codeunit "WHI Dataset Tools";
         cuJournalFuncs: Codeunit "WHI Journal Functions";
-    
+
 
     procedure BALExecuteEvent(PiEventId: integer; var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText);
     var
@@ -304,8 +304,8 @@ codeunit 97001 "BAL InsightFunc WNL"
         if (pbOnlyAssignedDocs) then
             lrecWhseActHeader.SetFilter("Assigned User ID", '%1|%2', '', '*' + pcodUser);
 
-        //if cuRegistrationMgmt.IsWHIInstalled() then
-        //  OnAfterFilterLookupWhseActivityHeaders(lrecWhseActHeader, pbOnlyAssignedDocs, pcodUser, ptxtFilter);
+
+        OnAfterFilterLookupWhseActivityHeaders(lrecWhseActHeader, pbOnlyAssignedDocs, pcodUser, ptxtFilter);
 
         if (lrecWhseActHeader.FindSet(false)) then
             repeat
@@ -414,6 +414,11 @@ codeunit 97001 "BAL InsightFunc WNL"
                         end;
                     until ((lrecWhseActLine.Next() = 0) or (liLineCounter >= piMaxDocCount));
             until ((lrecWhseActHeader.Next() = 0) or (liLineCounter >= piMaxDocCount))
+    end;
+
+    [IntegrationEvent(false, false)]
+    procedure OnAfterFilterLookupWhseActivityHeaders(var precWhseActivityHeader: Record "Warehouse Activity Header"; var pbOnlyAssignedDocs: Boolean; var pcodUser: Code[50]; var psFilter: Text)
+    begin
     end;
 
     procedure addWhseActDocToList(var ptrecDocList: Record "WHI Document List Buffer"; var piLineCounter: Integer; pbUseSourceDocument: Boolean; pcodDocumentNo: Code[20]; pcodSourceNo: Code[20]; piSourceTable: Integer; pcodRefNumber: Code[50]; pcodAssignedUser: Code[50]; pdtDueDate: Date; pcodWhseDocNumber: Code[20]; psCustomText1: Text[100]; psBarcode: Text[100])

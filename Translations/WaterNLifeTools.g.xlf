@@ -698,6 +698,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field BAL shipping agent Service - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 869153732 - Field 1689054440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
+          <source>Shopify Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL WHsActivityHeader Ext - Field BAL Shopify No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 869153732 - Field 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809570257">
           <source>Sell-to Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
