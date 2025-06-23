@@ -316,6 +316,7 @@ codeunit 97000 "BAL Func"
     var
         whes: codeunit "whse. jnl.-register line";
     begin
-        IsHandled := true;
+        if WhseEntry."Location Code" = 'GRAMRODE13' then
+            IsHandled := true;
     end;
 }
