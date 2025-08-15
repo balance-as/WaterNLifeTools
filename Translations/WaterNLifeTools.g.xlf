@@ -348,10 +348,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Clear2Bincontent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 4064095237 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear all inventory registered in the Item Journal Lines for the Physical Inventory Journal Template and Batch Name SR</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2805204955 - Action 4064095237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear Inventory registrered</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action ClearInventory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 1175011161 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modify warehouse entries to be editable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Modify Warehouse Entries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2805204955 - Action 1175011161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modify warehouse Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAL WaterNlife Setup Card - Action Modify Warehouse Entries - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2805204955 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print Label</source>

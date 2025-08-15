@@ -94,6 +94,7 @@ page 97000 "BAL WaterNlife Setup Card"
             {
                 Caption = 'Clear Inventory registrered';
                 ApplicationArea = All;
+                ToolTip = 'Clear all inventory registered in the Item Journal Lines for the Physical Inventory Journal Template and Batch Name SR';
                 //Visible = false;
 
                 trigger OnAction()
@@ -116,7 +117,7 @@ page 97000 "BAL WaterNlife Setup Card"
             {
                 Caption = 'Clear 2 Bin Content';
                 ApplicationArea = All;
-                //Visible = false;
+                Visible = false;
 
                 trigger OnAction()
                 var
@@ -129,6 +130,21 @@ page 97000 "BAL WaterNlife Setup Card"
                 end;
 
             }
+             action("Modify Warehouse Entries")
+            {
+                Caption = 'Modify warehouse Entries';
+                ToolTip = 'Modify warehouse entries to be editable';
+                trigger OnAction()
+                var
+                    WarehouseEntry: Record "Warehouse Entry";
+                    BALWarehouseEntries: page "BAL Warehouse Entries";
+                begin
+                    BALWarehouseEntries.SetRecord(WarehouseEntry);
+                    BALWarehouseEntries.Editable := true;
+                    BALWarehouseEntries.Run();
+                end;
+            }
+
         }
     }
 }
