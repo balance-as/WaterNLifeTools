@@ -319,4 +319,30 @@ codeunit 97000 "BAL Func"
         if WhseEntry."Location Code" = 'GRAMRODE13' then
             IsHandled := true;
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"WHI Whse. Activity Mgmt.", 'OnAfterFilterWhseActivityLines', '', true, true)]
+    local procedure CodeunitWHIWhseActivityMgmtOnAfterFilterWhseActivityLines(var precWhseActivityLine: Record "Warehouse Activity Line"; var ptrecEventParams: Record "IWX Event Param" temporary)
+    var
+        Set01: Text;
+        Set02: Text;
+        Set03: Text;
+        Set04: Text;
+        Set05: Text;
+    begin
+        Set01 := ptrecEventParams.getValue('SetFilter01');
+        Set02 := ptrecEventParams.getValue('SetFilter02');
+        Set03 := ptrecEventParams.getValue('SetFilter03');
+        Set04 := ptrecEventParams.getValue('SetFilter04');
+        Set05 := ptrecEventParams.getValue('SetFilter05');
+        if Set01 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '01-*');
+        if Set02 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '02-*');
+        if Set03 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '03-*');
+        if Set04 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '04-*');
+        if Set05 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '05-*');
+    end;
 }
