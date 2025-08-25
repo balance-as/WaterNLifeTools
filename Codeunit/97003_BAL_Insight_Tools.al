@@ -135,7 +135,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
     var
         lrecItemJournalLine: Record "Item Journal Line";
         lrrefItemJournalLine: RecordRef;
-        BinContent:record "Bin Content";
+        BinContent: record "Bin Content";
         ldnOutput: TextBuilder;
         ldtPostingDate: Date;
         lcodItemNo: Code[20];
@@ -161,11 +161,11 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
 
         //Insert
         if lcodBin = '' then begin
-            BinContent.setrange("Location Code",lcodLocation);
-            bincontent.setrange("Item No.",lcodItemNo);
-            bincontent.setrange(Default,true);
-            if BinContent.findset then 
-            lcodBin := BinContent."Bin Code";
+            BinContent.setrange("Location Code", lcodLocation);
+            bincontent.setrange("Item No.", lcodItemNo);
+            bincontent.setrange(Default, true);
+            if BinContent.findset then
+                lcodBin := BinContent."Bin Code";
         end;
         liNewLineNumber := CreateItemJnlEntry(lcodJournalBatchNo, lcodItemNo, lcodLocation, lcodVariant, lcodBin, ldQuantity, ldtPostingDate);
 
@@ -369,6 +369,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lrecItemJnlLine.SetRange("Location Code", lrecLocation.Code);
         if lrecItemJnlLine.FindSet() then;
         lrrefHeader.GetTable(lrecItemJnlBatch);
+        //if lrecItemJnlLine."Journal Batch Name" <> '' then //bb
         lrrefLine.GetTable(lrecItemJnlLine);
         lbNeedsItemTrackingTable := ptrecEventParams.getNeedsItemTrackingTable();
         cuDatasetTools.BuildHeaderLineDataset(
@@ -488,6 +489,6 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         iEventID: Integer;
         tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
-        c23044920:Codeunit 23044920;
+        c23044920: Codeunit 23044920;
 }
 

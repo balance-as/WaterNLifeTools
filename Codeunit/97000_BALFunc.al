@@ -328,12 +328,14 @@ codeunit 97000 "BAL Func"
         Set03: Text;
         Set04: Text;
         Set05: Text;
+        Set06: Text;
     begin
         Set01 := ptrecEventParams.getValue('SetFilter01');
         Set02 := ptrecEventParams.getValue('SetFilter02');
         Set03 := ptrecEventParams.getValue('SetFilter03');
         Set04 := ptrecEventParams.getValue('SetFilter04');
         Set05 := ptrecEventParams.getValue('SetFilter05');
+        Set06 := ptrecEventParams.getValue('SetFilter06');
         if Set01 = 'True' then
             precWhseActivityLine.SetFilter("Bin Code", '%1', '01-*');
         if Set02 = 'True' then
@@ -344,5 +346,7 @@ codeunit 97000 "BAL Func"
             precWhseActivityLine.SetFilter("Bin Code", '%1', '04-*');
         if Set05 = 'True' then
             precWhseActivityLine.SetFilter("Bin Code", '%1', '05-*');
+        if Set06 = 'True' then
+            precWhseActivityLine.SetFilter("Bin Code", '%1', '06-*');
     end;
 }
