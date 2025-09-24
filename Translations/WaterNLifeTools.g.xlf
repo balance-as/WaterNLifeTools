@@ -434,7 +434,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Move Amazon Orders - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2777263697 - Action 1205948582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>This function is used to change valud for "Exclude from movement"</source>
+          <source>This function is used to change value for "Exclude from movement"</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Set Exclude From - Property ToolTip</note>
         </trans-unit>

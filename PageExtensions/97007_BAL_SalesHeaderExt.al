@@ -35,7 +35,7 @@ pageextension 97007 "BAL Sales Header Ext." extends "Sales Order"
             action("Set Exclude From")
             {
                 Caption = 'Set exclude from Movement';
-                ToolTip = 'This function is used to change valud for "Exclude from movement"';
+                ToolTip = 'This function is used to change value for "Exclude from movement"';
                 ApplicationArea = All;
                 Image = MoveNegativeLines;
                 trigger OnAction()

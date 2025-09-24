@@ -349,4 +349,25 @@ codeunit 97000 "BAL Func"
         if Set06 = 'True' then
             precWhseActivityLine.SetFilter("Bin Code", '%1', '06-*');
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnCreateInvtPutAwayPickOnBeforeTestingStatus', '', true, true)]
+    local procedure DatabaseSalesHeaderOnCreateInvtPutAwayPickOnBeforeTestingStatus(var SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        salesheader.TestField("Sell-to Phone No.");
+        SalesHeader.TestField("Shortcut Dimension 1 Code");
+        SalesHeader.TestField("Shipping Agent Code");
+        case SalesHeader."Shipping Agent Code" of
+            'DDP', 'DAO':
+                SalesHeader.TestField("Shipping Agent Service Code");
+        end;
+        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        SalesLine.SetRange(Type, SalesLine.Type::Item);
+        if SalesLine.FindSet() then
+            repeat
+                salesline.TestField("Net Weight");
+            until SalesLine.Next() = 0;
+    end;
 }
