@@ -9,6 +9,13 @@ codeunit 97000 "BAL Func"
         //cu.OnFindBWPickBinOnBeforeFromBinContentFindSet(FromBinContent, SourceType, TotalQtyPickedBase, TotalQtyToPickBase, IsHandled);)
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Intrastat Report Line", 'OnBeforeValidateEvent', 'Suppl. Conversion Factor', false, false)]
+    local procedure IntrastatReportLineOnBeforeValidateEventSupplConversionFactor(var Rec: Record "Intrastat Report Line")
+    var
+    begin
+        Rec."Suppl. Conversion Factor" := Round(Rec."Suppl. Conversion Factor", 0.01);
+    end;
+
     [EventSubscriber(ObjectType::Table, database::"Transfer Header", 'OnAfterGetTransferRoute', '', true, true)]
     local procedure TableTransferHeaderOnAfterGetTransferRoute(var TransferHeader: Record "Transfer Header"; TransferRoute: Record "Transfer Route")
     begin
