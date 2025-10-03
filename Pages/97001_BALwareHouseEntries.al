@@ -56,7 +56,6 @@ page 97001 "BAL Warehouse Entries"
                 {
                     ApplicationArea = ItemTracking;
                     ToolTip = 'Specifies the package number assigned to the warehouse entry.';
-                    Visible = PackageTrackingVisible;
                 }
                 field("Expiration Date"; Rec."Expiration Date")
                 {
@@ -247,21 +246,9 @@ page 97001 "BAL Warehouse Entries"
 
     }
 
-    trigger OnOpenPage()
-    begin
-        SetPackageTrackingVisibility();
-    end;
 
     var
-        [InDataSet]
-        PackageTrackingVisible: Boolean;
         tp: page "Vendor Ledger Entries";
 
-    local procedure SetPackageTrackingVisibility()
-    var
-        PackageMgt: Codeunit "Package Management";
-    begin
-        PackageTrackingVisible := PackageMgt.IsEnabled();
-    end;
 }
 
