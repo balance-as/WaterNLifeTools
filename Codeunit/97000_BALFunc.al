@@ -363,7 +363,7 @@ codeunit 97000 "BAL Func"
         SalesLine: Record "Sales Line";
     begin
         salesheader.TestField("Sell-to Phone No.");
-        SalesHeader.TestField("Shortcut Dimension 1 Code");
+        //SalesHeader.TestField("Shortcut Dimension 1 Code");
         SalesHeader.TestField("Shipping Agent Code");
         case SalesHeader."Shipping Agent Code" of
             'DDP', 'DAO':
@@ -375,6 +375,9 @@ codeunit 97000 "BAL Func"
         if SalesLine.FindSet() then
             repeat
                 salesline.TestField("Net Weight");
+                SalesLine.TestField("Shortcut Dimension 1 Code");
             until SalesLine.Next() = 0;
     end;
+
+
 }
