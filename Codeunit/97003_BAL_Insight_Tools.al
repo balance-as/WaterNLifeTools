@@ -445,7 +445,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         LotNo: Code[20];
         lcuWHICommond: Codeunit "WHI Common Functions";
         CreateReservEntry: Codeunit "Create Reserv. Entry";
-        NoSeriesMgt: Codeunit "No. Series";
+        //NoSeriesMgt: Codeunit "No. Series";
         //  BALInsightFunc: Codeunit "BAL InsightFunc";
         ItemJnLine: Record "Item Journal Line";
         Status: Enum "Reservation Status";

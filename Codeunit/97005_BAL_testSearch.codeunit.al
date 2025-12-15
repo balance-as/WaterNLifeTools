@@ -70,6 +70,18 @@ codeunit 97005 "BAL Test Search scanner"
                         else
                             FilterTxt += '|' + precWhseActivityHeader."No.";
                     until precWhseActivityHeader.next = 0
+                else begin
+                    precWhseActivityHeader.setrange("BAL Shopify No");
+                    precWhseActivityHeader.setrange("Source Type", 1); // Sales Order
+                    precWhseActivityHeader.setfilter("Source No.", '@' + psFilter);
+                    if precWhseActivityHeader.findset then
+                        repeat
+                            if FilterTxt = '' then
+                                FilterTxt := precWhseActivityHeader."No."
+                            else
+                                FilterTxt += '|' + precWhseActivityHeader."No.";
+                        until precWhseActivityHeader.next = 0;
+                end;
             end;
             psFilter := FilterTxt;
         end;
