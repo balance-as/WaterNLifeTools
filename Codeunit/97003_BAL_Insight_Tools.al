@@ -45,6 +45,16 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 updateInvJournalLine(ptrecEventParams, pbsOutput);
             2000117:
                 BALAddItemTrackingInventory(ptrecEventParams, pbsOutput);
+            2000220:
+                BALGetDocumentlist(ptrecEventParams, pbsOutput);
+            2000221:
+                BALgetTranferlines(ptrecEventParams, pbsOutput);
+            2000222:
+                BALGetTransferOrder(ptrecEventParams, pbsOutput);
+            2000223:
+                BALUpdateTransferline(ptrecEventParams, pbsOutput);
+            2000224:
+                BALAddTransferLine(ptrecEventParams, pbsOutput);
         end;
     end;
 
@@ -482,6 +492,318 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         CreateReservEntry.CreateEntry(ItemJnLine."Item No.", ItemJnLine."Variant Code", ItemJnLine."Location Code", ItemJnLine.Description, ItemJnLine."Posting Date", ItemJnLine."Posting Date", 0, Status::Prospect);
     end;
 
+    procedure BALGetDocumentlist(var ptrecEventParams: record "IWX Event Param" temporary; var pbsoutput: BigText)
+    var
+        lrecConfig: Record "WHI Device Configuration";
+        lrecLocation: Record Location;
+        ltrecDocList: Record "WHI Document List Buffer" temporary;
+        lcuDataSetTools: Codeunit "WHI Dataset Tools";
+        lrrefDocListRef: RecordRef;
+        lcodUserName: Code[20];
+        lcodOptionalItem: Code[20];
+        lbOnlyAssignedDocs: Boolean;
+        liMaxDocList: Integer;
+        lsFilter: Text;
+        ldnOutput: TextBuilder;
+        liDocCounter: Integer;
+    begin
+        lcodUserName := CopyStr(ptrecEventParams.GetExtendedValue('user_name'), 1, MaxStrLen(lcodUserName));
+        // lsFilter := cuCommonFuncs.EscapeFilterString(ptrecEventParams.GetExtendedValue('filter'));
+        lcodOptionalItem := CopyStr(ptrecEventParams.GetExtendedValue('item_number'), 1, MaxStrLen(lcodOptionalItem));
+
+        if lcodOptionalItem <> '' then
+            lsFilter := '';
+
+        cuCommonFuncs.getDeviceConfig(lrecConfig, ptrecEventParams);
+        lbOnlyAssignedDocs := (lcodUserName <> '') and (lrecConfig."Show All Documents" = lrecConfig."Show All Documents"::No);
+
+        recWHISetup.Get();
+        liMaxDocList := recWHISetup."Document Max List";
+        if liMaxDocList = 0 then
+            liMaxDocList := 999999;
+
+        lrecLocation.Get(lrecConfig."Location Code");
+
+        /*if (lrecLocation."Require Shipment") then
+            c23044919.searchWhseShipments(ltrecDocList, liDocCounter, lrecConfig, lbOnlyAssignedDocs, lcodUserName, lsFilter, liMaxDocList, lcodOptionalItem)
+        else begin
+            c23044919.searchSalesOrders(ltrecDocList, liDocCounter, lrecConfig, lbOnlyAssignedDocs, lcodUserName, lsFilter, liMaxDocList, lcodOptionalItem);
+          */
+        searchTransferOrders(ltrecDocList, liDocCounter, lrecConfig, lbOnlyAssignedDocs, lcodUserName, lsFilter, liMaxDocList, lcodOptionalItem);
+        // end;
+
+        ltrecDocList.Reset();
+        lrrefDocListRef.GetTable(ltrecDocList);
+        if (lrrefDocListRef.FindFirst()) then;
+
+        lcuDataSetTools.BuildLinesOnlyDataset(
+          iEventID,
+          lrrefDocListRef,
+          false,
+          ldnOutput);
+
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    procedure searchTransferOrders(var ptrecDocList: Record "WHI Document List Buffer"; var piLineCounter: Integer; var precConfig: Record "WHI Device Configuration"; pbOnlyAssignedDocs: Boolean; pcodUser: Code[50]; ptxtFilter: Text; piMaxDocCount: Integer; pcodItemNumber: Code[20])
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lrecTransHeaderTemp: Record "Transfer Header";
+        lbIncludeResult: Boolean;
+    begin
+        if not cuRegistrationMgmt.CheckTransferOrdersSupported(false) then
+            exit;
+        //if confirm('bb here?') then;
+        lrecLocation.Get(precConfig."Location Code");
+        lrecTransferHeader.SetRange("Transfer-To Code", precConfig."Location Code");
+        lrecTransferHeader.SetRange("Completely Shipped", false);
+
+
+        //if (precConfig."Only Show Released Shipments" = precConfig."Only Show Released Shipments"::Yes) then
+        lrecTransferHeader.SetRange(Status, lrecTransferHeader.Status::Open);
+
+        if (pbOnlyAssignedDocs) then
+            lrecTransferHeader.SetFilter("Assigned User ID", '%1|%2', '', '*' + pcodUser);
+
+        if (lrecTransferHeader.FindSet(false)) then
+            repeat
+                lbIncludeResult := (ptxtFilter = '');
+
+                lrecTransferLine.Reset();
+                lrecTransferLine.SetRange("Document No.", lrecTransferHeader."No.");
+                lrecTransferLine.SetRange("Completely Shipped", false);
+                lrecTransferLine.SetRange("Derived From Line No.", 0);
+
+                if (pcodItemNumber <> '') then
+                    lrecTransferLine.SetRange("Item No.", pcodItemNumber);
+
+                lrecTransHeaderTemp.Reset();
+
+                if (lrecTransferLine.FindSet(false)) then
+                    repeat
+
+                        if (ptxtFilter <> '') then begin
+                            lrecTransHeaderTemp.SetFilter("No.", ptxtFilter);
+                            if lrecTransHeaderTemp.FindSet(false) then
+                                repeat
+                                    lbIncludeResult := lrecTransHeaderTemp."No." = lrecTransferHeader."No.";
+                                until ((lrecTransHeaderTemp.Next() = 0) or lbIncludeResult);
+                            //if confirm(StrSubstNo('bb kom her her? %1',lbIncludeResult)) then;
+                            if (not lbIncludeResult) then begin
+                                lrecTransHeaderTemp.Reset();
+                                lrecTransHeaderTemp.SetRange("No.", lrecTransferHeader."No.");
+                                lrecTransHeaderTemp.SetFilter("External Document No.", ptxtFilter);
+                                lbIncludeResult := not lrecTransHeaderTemp.IsEmpty();
+                            end;
+                        end;
+
+                        if (lbIncludeResult) then
+                            AddDocumentToList(
+                              ptrecDocList,
+                              piLineCounter,
+                              false,
+                              lrecTransferLine."Document No.",
+                              '',
+                              DATABASE::"Transfer Header",
+                              lrecTransferHeader."External Document No.",
+                              lrecTransferHeader."Assigned User ID",
+                              lrecTransferHeader."Shipment Date",
+                              '',
+                              '',
+                              '%T%' + lrecTransferLine."Document No."
+                            );
+                    until ((lrecTransferLine.Next() = 0) or (piLineCounter >= piMaxDocCount) or lbIncludeResult);
+            until ((lrecTransferHeader.Next() = 0) or (piLineCounter >= piMaxDocCount))
+    end;
+
+    local procedure AddDocumentToList(var ptrecDocList: Record "WHI Document List Buffer"; var piLineCounter: Integer; pbUseSourceDocument: Boolean; pcodDocumentNo: Code[20]; pcodSourceNo: Code[20]; piSourceTable: Integer; pcodRefNumber: Code[50]; pcodAssignedUser: Code[50]; pdtDueDate: Date; pcodWhseDocNumber: Code[20]; psCustomText1: Text[100]; psBarcode: Text[100])
+    var
+        lbHandled: Boolean;
+    begin
+        ptrecDocList.Reset();
+        ptrecDocList.SetRange("Document No.", pcodDocumentNo);
+        if (pbUseSourceDocument) then
+            ptrecDocList.SetRange("Source Document No.", pcodSourceNo);
+
+        if (not ptrecDocList.FindFirst()) then begin
+            ptrecDocList.Init();
+            piLineCounter += 1;
+            ptrecDocList."Entry No." := piLineCounter;
+            ptrecDocList."Source Table" := piSourceTable;
+            ptrecDocList."Reference No." := pcodRefNumber;
+            ptrecDocList."Document No." := pcodDocumentNo;
+            if (pbUseSourceDocument) then
+                ptrecDocList."No." := pcodSourceNo
+            else
+                ptrecDocList."No." := pcodDocumentNo;
+
+            ptrecDocList."Assigned User ID" := pcodAssignedUser;
+            ptrecDocList."Due Date" := pdtDueDate;
+            ptrecDocList."Warehouse Document No." := pcodWhseDocNumber;
+            ptrecDocList."Source Document No." := pcodSourceNo;
+            ptrecDocList."Custom Text 1" := psCustomText1;
+
+            ptrecDocList.Barcode := psBarcode;
+
+            if cuRegistrationMgmt.IsWHIInstalled() then begin
+            end;
+
+            ptrecDocList.Insert();
+        end;
+    end;
+
+    local procedure BALgetTranferlines(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        TransferHeader: Record "Transfer Header";
+        TransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lcodTransferNo: Code[20];
+    begin
+        lcodTransferNo := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferNo));
+        ptrecEventParams.getLocation(lrecLocation);
+
+        TransferHeader.Get(lcodTransferNo);
+        TransferLine.SetCurrentKey("Document No.", "Line No.");
+        TransferLine.SetRange("Document No.", lcodTransferNo);
+        if (TransferLine.FindSet(false)) then;
+
+        lrrefHeader.GetTable(TransferHeader);
+        lrrefLine.GetTable(TransferLine);
+
+        cuDatasetTools.BuildHeaderLineDataset(
+          iEventID,
+          lrrefHeader,
+          lrrefLine,
+          lbNeedsItemTrackingTable,
+          ldnOutput);
+
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Item Journal Line"));
+        ptrecEventParams.setValue('Document No.', lcodTransferNo);
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    local procedure BALGetTransferOrder(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lcuDataSetTools: Codeunit "WHI Dataset Tools";
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        lcodLocation: Code[10];
+        lcodTransferOrderNumber: Code[20];
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lbHandled: Boolean;
+    begin
+        cuRegistrationMgmt.CheckTransferOrdersSupported(true);
+
+        lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
+        lrecTransferHeader.Get(lcodTransferOrderNumber);
+
+        lcodLocation := CopyStr(ptrecEventParams.GetExtendedValue('location'), 1, MaxStrLen(lcodLocation));
+
+        if lrecLocation.Get(lcodLocation) then;
+        cuCommonFuncs.checkLocation(lcodLocation, lrecTransferHeader."Transfer-to Code");
+
+        lbNeedsItemTrackingTable := ptrecEventParams.getNeedsItemTrackingTable();
+        lrecTransferLine.SetRange("Document No.", lcodTransferOrderNumber);
+        lrecTransferLine.SetFilter("Item No.", '<>%1', '');
+        lrecTransferLine.SetRange("Transfer-from Code", lrecTransferHeader."Transfer-from Code");
+        lrecTransferLine.SetRange("Transfer-to Code", lrecTransferHeader."Transfer-to Code");
+
+
+        if (lrecTransferLine.FindSet(false)) then;
+
+        lrecTransferHeader.SetRecFilter();
+        lrrefHeader.GetTable(lrecTransferHeader);
+        lrrefLine.GetTable(lrecTransferLine);
+
+        lcuDataSetTools.SetFormulaCalcEachRow(
+          iEventID,
+          lrrefLine,
+            -1,
+          DATABASE::Item,
+          6500,
+          'WHERE (No.=FILTER(''[Item No.]''))');
+
+        lcuDataSetTools.SetCalculateFields(iEventID,
+                                          lrrefLine,
+                                          lrecTransferLine.FieldNo("Outstanding Quantity"),
+                                          lrecTransferLine.FieldNo(Quantity),
+                                          lrecTransferLine.FieldNo("Qty. to Receive"),
+                                          lrecTransferLine.FieldNo("Quantity Received")
+                                          );
+
+        lcuDataSetTools.SetPositiveFlag(true);
+
+        lcuDataSetTools.BuildHeaderLineWithLocation(
+          iEventID,
+          lrrefHeader,
+          lrrefLine,
+          lbNeedsItemTrackingTable,
+          true,
+          ldnOutput,
+          lcodLocation);
+
+        pbsOutput.AddText(ldnOutput.ToText());
+
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Transfer Header"));
+        ptrecEventParams.setValue('Document No.', lcodTransferOrderNumber);
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+
+    local procedure BALUpdateTransferline(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lcuDataSetTools: Codeunit "WHI Dataset Tools";
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        lcodLocation: Code[10];
+        lcodTransferOrderNumber: Code[20];
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lbHandled: Boolean;
+    begin
+        cuRegistrationMgmt.CheckTransferOrdersSupported(true);
+
+        lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
+        lrecTransferHeader.Get(lcodTransferOrderNumber);
+    end;
+
+    local procedure BALAddTransferLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lcuDataSetTools: Codeunit "WHI Dataset Tools";
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        lcodLocation: Code[10];
+        lcodTransferOrderNumber: Code[20];
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lbHandled: Boolean;
+    begin
+        cuRegistrationMgmt.CheckTransferOrdersSupported(true);
+
+        lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
+        lrecTransferHeader.Get(lcodTransferOrderNumber);
+    end;
+
     var
         cuCommonFuncs: Codeunit "WHI Common Functions";
         cuDatasetTools: Codeunit "WHI Dataset Tools";
@@ -489,6 +811,13 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         cuActivityLogMgt: Codeunit "WHI Activity Log Mgmt.";
         iEventID: Integer;
         tcWrongSeriesErr: Label 'Batch [%1] has a [%2] defined.\Please use a [%3] instead.', Comment = '%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series';
+        cuRegistrationMgmt: Codeunit "WHI Registration Mgmt.";
         c23044920: Codeunit 23044920;
+        c23044918: Codeunit 23044918;
+        c23044919: Codeunit 23044919;
+        C23044924: Codeunit 23044924;
+
+
+        recWHISetup: Record "WHI Setup";
 }
 
