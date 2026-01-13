@@ -582,6 +582,15 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                     lrecTransferLine.SetRange("Item No.", pcodItemNumber);
 
                 lrecTransHeaderTemp.Reset();
+                if not (lrecTransferLine.FindSet(false)) then begin
+
+                    lrecTransferLine."Document No." := lrecTransferHeader."No.";
+                    lrecTransferLine."Line No." := 1000;
+                    lrecTransferLine."Transfer-from Code" := lrecTransferHeader."Transfer-from Code";
+                    lrecTransferLine."Transfer-to Code" := lrecTransferHeader."Transfer-to Code";
+                    lrecTransferLine."Item No." := '100001';
+                    lrecTransferLine.Insert(true);
+                end;
 
                 if (lrecTransferLine.FindSet(false)) then
                     repeat
@@ -592,7 +601,6 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                                 repeat
                                     lbIncludeResult := lrecTransHeaderTemp."No." = lrecTransferHeader."No.";
                                 until ((lrecTransHeaderTemp.Next() = 0) or lbIncludeResult);
-                            //if confirm(StrSubstNo('bb kom her her? %1',lbIncludeResult)) then;
                             if (not lbIncludeResult) then begin
                                 lrecTransHeaderTemp.Reset();
                                 lrecTransHeaderTemp.SetRange("No.", lrecTransferHeader."No.");
@@ -722,7 +730,6 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lrecTransferLine.SetRange("Transfer-from Code", lrecTransferHeader."Transfer-from Code");
         lrecTransferLine.SetRange("Transfer-to Code", lrecTransferHeader."Transfer-to Code");
 
-
         if (lrecTransferLine.FindSet(false)) then;
 
         lrecTransferHeader.SetRecFilter();
@@ -782,6 +789,16 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
 
         lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
         lrecTransferHeader.Get(lcodTransferOrderNumber);
+        lrecTransferLine.SetRange("Document No.", lcodTransferOrderNumber);
+        lrecTransferLine.setrange("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
+        if lrecTransferLine.Findset() then begin
+            lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
+            if ptrecEventParams.getValue('uom_code') <> '' then
+                lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            lrecTransferLine.Modify;
+        end;
+
+        cuActivityLogMgt.logActivity(ptrecEventParams);
     end;
 
     local procedure BALAddTransferLine(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
@@ -802,6 +819,27 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
 
         lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
         lrecTransferHeader.Get(lcodTransferOrderNumber);
+        lrecTransferLine.SetRange("Document No.", lcodTransferOrderNumber);
+        lrecTransferLine.setrange("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
+
+        if lrecTransferLine.Findset() then begin
+            lrecTransferLine.Validate("Quantity", lrecTransferLine.Quantity + ptrecEventParams.getValueAsDecimal('quantity'));
+            lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            lrecTransferLine.Modify;
+        end else begin
+            lrecTransferLine.setrange("Item No.");
+            if lrecTransferLine.Findlast() then
+                lrecTransferLine."Line No." += 10000
+            else
+                lrecTransferLine."Line No." := 10000;
+            lrecTransferLine.Validate("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
+            lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
+            if ptrecEventParams.getValue('uom_code') <> '' then
+                lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            lrecTransferLine.insert;
+        end;
+
+        cuActivityLogMgt.logActivity(ptrecEventParams);
     end;
 
     var
