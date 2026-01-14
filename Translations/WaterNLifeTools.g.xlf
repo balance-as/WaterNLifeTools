@@ -113,6 +113,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType FailTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 3945226023 - NamedType 218166550" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skip not invoiced Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method ReportIntrastatReportGetLinesOnBeforeFilterItemLedgerEntry - NamedType ConfirmTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4198103595 - Method 3602853947 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 is changed</source>
           <note from="Developer" annotates="general" priority="2"></note>

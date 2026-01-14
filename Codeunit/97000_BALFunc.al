@@ -379,5 +379,14 @@ codeunit 97000 "BAL Func"
             until SalesLine.Next() = 0;
     end;
 
-
+    [EventSubscriber(ObjectType::Report, Report::"Intrastat Report Get Lines", 'OnBeforeFilterItemLedgerEntry', '', true, true)]
+    local procedure ReportIntrastatReportGetLinesOnBeforeFilterItemLedgerEntry(IntrastatReportHeader: Record "Intrastat Report Header"; var ItemLedgerEntry: Record "Item Ledger Entry"; var IsHandled: Boolean; StartDate: Date; EndDate: Date; sender: Report "Intrastat Report Get Lines")
+    var
+        ConfirmTxt: Label 'Skip not invoiced Entries';
+    begin
+        ItemLedgerEntry.setrange("Last Invoice Date", StartDate, EndDate);
+        if Confirm(ConfirmTxt) then
+            ItemLedgerEntry.setfilter("Invoiced Quantity", '<>0');
+        IsHandled := true;
+    end;
 }

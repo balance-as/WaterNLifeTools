@@ -139,6 +139,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method MoveLocation - NamedType FailTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4198103595 - Method 3945226023 - NamedType 218166550" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skip not invoiced Entries</source>
+          <target>Spring over ikke-fakturede poster</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL Func - Method ReportIntrastatReportGetLinesOnBeforeFilterItemLedgerEntry - NamedType ConfirmTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4198103595 - Method 3602853947 - NamedType 1916287837" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 is changed</source>
           <target>%1 %2 er ændret</target>
@@ -162,6 +168,12 @@
           <target>Kladde %1 har en %2 angivet.\Sæt venligst %3 i stedet</target>
           <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - NamedType tcWrongSeriesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - Method 967440326 - NamedType 3174307937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post transfer order [%1].</source>
+          <target>Bogfør overførselsordre [%1].</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Transfer Order No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - Method BALPostTransferOrder - NamedType tcLogPostTransferOrderMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 605781948 - NamedType 71159511" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post occurred, and Printing has been queued</source>
@@ -524,7 +536,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Move Amazon Orders - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2777263697 - Action 1205948582 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>This function is used to change valud for "Exclude from movement"</source>
+          <source>This function is used to change value for "Exclude from movement"</source>
           <target>Denne fuktion er brugt til at ændre værdi for "Udeluk fra bevægelse"</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Sales Header Ext. - Action Set Exclude From - Property ToolTip</note>
@@ -896,6 +908,18 @@
           <target>Kørsel er stoppet!\Tilføj filter for %1!</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension BAL Create Invt Put Sxt - Change Warehouse Request - Method OnBeforePreDataItem - NamedType ErrorTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - Method 2642695344 - NamedType 3174307937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post transfer order [%1].</source>
+          <target>Bogfør overførselsordre [%1].</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Transfer Order No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - Method BALGetDocumentlist - NamedType tcLogPostTransferOrderMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - Method 2642695344 - NamedType 1794032510" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch [%1] has a [%2] defined.\Please use a [%3] instead.</source>
+          <target>Kladde %1 har en %2 angivet.\Sæt venligst %3 i stedet</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - Method BALGetDocumentlist - NamedType tcWrongSeriesErr</note>
         </trans-unit>
         <trans-unit id="PageExtension 1391811513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Get GTIN no.</source>

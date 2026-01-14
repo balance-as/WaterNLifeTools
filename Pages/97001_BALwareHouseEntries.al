@@ -9,7 +9,7 @@ page 97001 "BAL Warehouse Entries"
     PageType = List;
     SourceTable = "Warehouse Entry";
     UsageCategory = History;
-    Permissions = TableData "Warehouse Entry" = d;
+    Permissions = TableData "Warehouse Entry" = dm;
     layout
     {
         area(content)
@@ -92,12 +92,14 @@ page 97001 "BAL Warehouse Entries"
                 {
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies the number of units of the item in the warehouse entry.';
+                    Editable = true;
                 }
                 field("Qty. (Base)"; Rec."Qty. (Base)")
                 {
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies the quantity of the entry, in the base unit of measure.';
                     Visible = false;
+                    Editable = true;
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
