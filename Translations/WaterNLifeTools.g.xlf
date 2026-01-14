@@ -133,6 +133,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = Batch Name; %2 = No. Series; %3 = Posting No. Series</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - NamedType tcWrongSeriesErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4221973391 - Method 967440326 - NamedType 3174307937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post transfer order [%1].</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Transfer Order No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BAL WHI Basic Count Mgmt. - Method BALPostTransferOrder - NamedType tcLogPostTransferOrderMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 605781948 - NamedType 71159511" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post occurred, and Printing has been queued</source>
           <note from="Developer" annotates="general" priority="2"></note>

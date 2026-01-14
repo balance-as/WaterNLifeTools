@@ -55,6 +55,10 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 BALUpdateTransferline(ptrecEventParams, pbsOutput);
             2000224:
                 BALAddTransferLine(ptrecEventParams, pbsOutput);
+            2000225:
+                BALDeleteTransferLine(ptrecEventParams, pbsOutput);
+            2000226:
+                BALPostTransferOrder(ptrecEventParams, pbsOutput);
         end;
     end;
 
@@ -784,6 +788,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         ldnOutput: TextBuilder;
         lbNeedsItemTrackingTable: Boolean;
         lbHandled: Boolean;
+        ItemUnitofMeasure: Record "Item Unit of Measure";
     begin
         cuRegistrationMgmt.CheckTransferOrdersSupported(true);
 
@@ -792,9 +797,10 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lrecTransferLine.SetRange("Document No.", lcodTransferOrderNumber);
         lrecTransferLine.setrange("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
         if lrecTransferLine.Findset() then begin
-            lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
-            if ptrecEventParams.getValue('uom_code') <> '' then
-                lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            if ItemUnitofMeasure.get(lrecTransferLine."Item No.", ptrecEventParams.getValue('uom_code')) then
+                lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity') * ItemUnitofMeasure."Qty. per Unit of Measure")
+            else
+                lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
             lrecTransferLine.Modify;
         end;
 
@@ -814,6 +820,7 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         ldnOutput: TextBuilder;
         lbNeedsItemTrackingTable: Boolean;
         lbHandled: Boolean;
+        ItemUnitofMeasure: Record "Item Unit of Measure";
     begin
         cuRegistrationMgmt.CheckTransferOrdersSupported(true);
 
@@ -823,8 +830,10 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         lrecTransferLine.setrange("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
 
         if lrecTransferLine.Findset() then begin
-            lrecTransferLine.Validate("Quantity", lrecTransferLine.Quantity + ptrecEventParams.getValueAsDecimal('quantity'));
-            lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            if ItemUnitofMeasure.get(lrecTransferLine."Item No.", ptrecEventParams.getValue('uom_code')) then
+                lrecTransferLine.Validate("Quantity", lrecTransferLine.Quantity + ptrecEventParams.getValueAsDecimal('quantity') * ItemUnitofMeasure."Qty. per Unit of Measure")
+            else
+                lrecTransferLine.Validate("Quantity", lrecTransferLine.Quantity + ptrecEventParams.getValueAsDecimal('quantity'));
             lrecTransferLine.Modify;
         end else begin
             lrecTransferLine.setrange("Item No.");
@@ -834,11 +843,91 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
                 lrecTransferLine."Line No." := 10000;
             lrecTransferLine.Validate("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
             lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
-            if ptrecEventParams.getValue('uom_code') <> '' then
-                lrecTransferLine.Validate("Unit of Measure Code", ptrecEventParams.getValue('uom_code'));
+            if ItemUnitofMeasure.get(lrecTransferLine."Item No.", ptrecEventParams.getValue('uom_code')) then
+                lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity') * ItemUnitofMeasure."Qty. per Unit of Measure")
+            else
+                lrecTransferLine.Validate("Quantity", ptrecEventParams.getValueAsDecimal('quantity'));
             lrecTransferLine.insert;
         end;
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
 
+    local procedure BALDeleteTransferline(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecLocation: Record Location;
+        lcuDataSetTools: Codeunit "WHI Dataset Tools";
+        lrrefHeader: RecordRef;
+        lrrefLine: RecordRef;
+        lcodLocation: Code[10];
+        lcodTransferOrderNumber: Code[20];
+        ldnOutput: TextBuilder;
+        lbNeedsItemTrackingTable: Boolean;
+        lbHandled: Boolean;
+        ItemUnitofMeasure: Record "Item Unit of Measure";
+    begin
+        cuRegistrationMgmt.CheckTransferOrdersSupported(true);
+
+        lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
+        lrecTransferHeader.Get(lcodTransferOrderNumber);
+        lrecTransferLine.SetRange("Document No.", lcodTransferOrderNumber);
+        lrecTransferLine.setrange("Item No.", ptrecEventParams.GetExtendedValue('item_number'));
+        if lrecTransferLine.Findset() then
+            lrecTransferLine.Delete;
+        cuActivityLogMgt.logActivity(ptrecEventParams);
+    end;
+
+    procedure BALPostTransferOrder(var ptrecEventParams: Record "IWX Event Param" temporary; var pbsOutput: BigText)
+    var
+        lrecTransferHeader: Record "Transfer Header";
+        lrecTransferLine: Record "Transfer Line";
+        lrecReservationEntry: Record "Reservation Entry";
+        lcuTransPost: Codeunit "TransferOrder-Post Shipment";
+        lcodTransferOrderNumber: Code[20];
+        ltxtDetails: Text[250];
+        lbManuallyPosted: Boolean;
+        tcLogPostTransferOrderMsg: Label 'Post transfer order [%1].', Comment = '%1 = Transfer Order No.';
+    begin
+        lcodTransferOrderNumber := CopyStr(ptrecEventParams.GetExtendedValue('doc_num'), 1, MaxStrLen(lcodTransferOrderNumber));
+        lbManuallyPosted := ptrecEventParams.getValueAsBool('manuallyPosted');
+
+
+        lrecTransferHeader.Get(lcodTransferOrderNumber);
+
+        lrecTransferLine.SetRange("Document No.", lrecTransferHeader."No.");
+        if not lbManuallyPosted then
+            lrecTransferLine.SetFilter("Qty. to Receive", '>%1', 0);
+
+        if lrecTransferLine.FindSet(false) then begin
+            lrecTransferHeader.Validate("Posting Date", cuCommonFuncs.GetTodaysDate(ptrecEventParams));
+            lrecTransferHeader.Modify(true);
+            lcuTransPost.SetHideValidationDialog(true);
+
+            lcuTransPost.Run(lrecTransferHeader);
+            //CODEUNIT.Run(CODEUNIT::"TransferOrder-Post (Yes/No)", lrecTransferHeader);
+
+            if (lrecTransferLine.FindSet(false)) then
+                repeat
+                    lrecReservationEntry.SetRange(Positive, true);
+                    lrecReservationEntry.SetRange("Item No.", lrecTransferLine."Item No.");
+                    lrecReservationEntry.SetRange("Location Code", lrecTransferLine."Transfer-to Code");
+                    lrecReservationEntry.SetRange("Source ID", lrecTransferLine."Document No.");
+                    lrecReservationEntry.SetRange("Source Prod. Order Line", lrecTransferLine."Line No.");
+                    if (lrecReservationEntry.FindFirst()) then begin
+                        lrecReservationEntry.Validate("Qty. to Handle (Base)", 0);
+                        lrecReservationEntry.Validate("Qty. to Invoice (Base)", 0);
+                        lrecReservationEntry.Modify(true);
+                    end;
+                until (lrecTransferLine.Next() = 0);
+        end;
+
+        cuCommonFuncs.generateSuccessReturn(pbsOutput);
+
+        ltxtDetails := StrSubstNo(tcLogPostTransferOrderMsg, lcodTransferOrderNumber);
+        ptrecEventParams.setValue('details', ltxtDetails);
+        ptrecEventParams.setValue('Document Type', Format(DATABASE::"Transfer Line"));
+        ptrecEventParams.setValue('Document No.', lcodTransferOrderNumber);
         cuActivityLogMgt.logActivity(ptrecEventParams);
     end;
 
@@ -854,6 +943,9 @@ codeunit 97003 "BAL WHI Basic Count Mgmt."
         c23044918: Codeunit 23044918;
         c23044919: Codeunit 23044919;
         C23044924: Codeunit 23044924;
+        TransferOrder: page "Transfer Order";
+        cu_TransferOrderPost: Codeunit "TransferOrder-Post Receipt";
+        //             CODEUNIT.Run(CODEUNIT::"TransferOrder-Post (Yes/No)", Rec);
 
 
         recWHISetup: Record "WHI Setup";
