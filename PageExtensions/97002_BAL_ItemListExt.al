@@ -7,6 +7,13 @@ pageextension 97002 "BAL Item List Ext" extends "Item List"
 
     layout
     {
+        addafter("Base Unit of Measure")
+        {
+            field("BAL Status"; rec."BAL Status")
+            {
+                ApplicationArea = All;
+            }
+        }
         // Add changes to page layout here
         addfirst(factboxes)
         {

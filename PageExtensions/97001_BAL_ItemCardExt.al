@@ -9,6 +9,10 @@ pageextension 97001 "BAL Item Card Ext" extends "Item Card"
     {
         addafter("Qty. on Sales Order")
         {
+            field("BAL Status"; rec."BAL Status")
+            {
+                ApplicationArea = All;
+            }
             field("BAL Qty on Blanket Order"; rec."BAL Qty on Blanket Order")
             {
                 ApplicationArea = All;

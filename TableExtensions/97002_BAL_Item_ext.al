@@ -38,6 +38,12 @@ tableextension 97002 "BAL Item Ext" extends Item
             Editable = false;
             FieldClass = FlowField;
         }
+        field(97002; "BAL Status"; Option)
+        {
+            Caption = 'Status';
+            OptionMembers = Active,"Discontinued-Active",Discontinued,New;
+            OptionCaption = 'Active,"Discontinued-Active",Discontinued,New';
+        }
     }
     
 }
