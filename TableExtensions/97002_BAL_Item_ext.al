@@ -42,7 +42,7 @@ tableextension 97002 "BAL Item Ext" extends Item
         {
             Caption = 'Status';
             OptionMembers = Active,"Discontinued-Active",Discontinued,New;
-            OptionCaption = 'Active,"Discontinued-Active",Discontinued,New';
+            OptionCaption = 'Active,Discontinued-Active,Discontinued,New';
         }
     }
     
