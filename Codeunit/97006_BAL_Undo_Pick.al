@@ -40,8 +40,9 @@ codeunit 97006 "BAL Undo Pick"
             repeat
                 location.get(WhseEntry."Location Code");
                 Location.TestField("BAL Wrong Pick Bin");
+                Location.TestField("BAL Wrong Template Name");
                 Location.TestField("BAL Wrong Batch name");
-                ItemJnlLine."Journal Template Name" := 'OMKLASSIFI';
+                ItemJnlLine."Journal Template Name" := location."BAL Wrong Template Name";
                 ItemJnlLine.setrange("Journal Batch Name", Location."BAL Wrong Batch Name");
                 ItemJnlLine."Journal Batch Name" := Location."BAL Wrong Batch Name";
                 ItemJnlLine.validate("Item No.", WhseEntry."Item No.");

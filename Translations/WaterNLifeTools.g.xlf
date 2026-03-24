@@ -413,6 +413,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Item List Ext - Action BAL ItemLabel - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1374370748 - Control 2881208774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Wrong Pick</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension BAL Location page ext - Control Wrong Pick - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 877846630 - Action 4208914614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3105268119">
           <source>Just testing</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -607,6 +612,11 @@
           <source>Wrong Pick Bin</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Location TabExt - Field BAL Wrong Pick Bin - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2190615424 - Field 854747237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>Wrong Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension BAL Location TabExt - Field BAL Wrong Template Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1515121953 - Field 1383471679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Pick Exist</source>
