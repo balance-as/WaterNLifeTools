@@ -56,7 +56,7 @@ codeunit 97006 "BAL Undo Pick"
                 ItemJnlLine.validate("New Location Code", WhseEntry."Location Code");
                 ItemJnlLine.validate("New Bin Code", Location."BAL Wrong Pick Bin");
                 ItemJnlLine.Validate(Quantity, WhseEntry.Quantity);
-                WMSManagement.CreateWhseJnlLine(ItemJnlLine, 0, WhseJnlLine, false);
+                WMSManagement.CreateWhseJnlLine(ItemJnlLine, 0, WhseJnlLine, True);
                 WhseJnlRegisterLine.run(WhseJnlLine);
             until WhseEntry.Next = 0;
         end;
