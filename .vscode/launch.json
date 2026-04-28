@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Microsoft cloud sandbox",
+            "name": "Microsoft cloud sandboxSandbox_WL_21042026",
             "request": "launch",
             "type": "al",
             "tenant": "39d558ed-d676-4dfd-9d1c-7110bb396a03",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_BAL_03032026",
-            "serverInstance": "Sandbox_BAL_03032026",
+            "environmentName": "Sandbox_WL_21042026",
+            "serverInstance": "Sandbox_WL_21042026",
             "startupObjectId": 31,
             "startupObjectType": "Page",
             "breakOnError": true,

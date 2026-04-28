@@ -5,7 +5,7 @@ pageextension 97020 "BAL Transfer Order Subform" extends "Transfer Order Subform
         // Add changes to page layout here
     }
 
-   /* actions
+    actions
     {
         addafter(SelectMultiItems)
         {
@@ -16,18 +16,18 @@ pageextension 97020 "BAL Transfer Order Subform" extends "Transfer Order Subform
                 var
 
                 begin
-                    if rec."Item No." = '248011' then begin
-                        rec."Qty. in Transit" := 23;
-                        rec."Qty. in Transit (Base)" := 23;
-                        rec."Qty. Received (Base)" := 50;
-                        rec."Quantity Received" := 50;
+                    if rec."Item No." = '248031' then begin
+                        rec."Qty. in Transit" := 25;
+                        rec."Qty. in Transit (Base)" := 25;
+                        rec."Qty. Received (Base)" := 75;
+                        rec."Quantity Received" := 75;
                         rec.Modify()
                     end;
                 end;
             }
         }
     }
-    */
+    
 
     var
         myInt: Integer;
